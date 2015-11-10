@@ -290,8 +290,18 @@ body.main{
 	background:url(../images/img_sub1_contest_gift.png) no-repeat 0px 50px;
 	height:540px;
 }
-
-
+.wrap_sec_contest .sec_gift a.btn_gift{
+	position:absolute;
+	top:20%;
+	right:0;
+	background:#eee;
+}
+.wrap_sec_contest .sec_gift a.btn_offline{
+	position:absolute;
+	top:50%;
+	left:40%;
+	background:#ccc;
+}
 .wrap_sec_vote .sec_title{
 	text-align:center;
 	padding:50px 0 25px;
@@ -310,15 +320,26 @@ body.main{
 .wrap_sec_vote  .sec_sorting a{
 	display:block;
 	float:left;
+	width:16.6%;
+	text-align:center;
 }
-.wrap_sec_vote  .sec_sorting a.cate{
+.wrap_sec_vote  .sec_sorting a img{
 }
 
-.wrap_sec_vote  .sec_sorting a.sear_baby{
-	float:right;
-	padding-right:10px;
-	padding-top:10px;
+.wrap_sec_vote .sear_baby{
+	text-align:center;
+	padding:0 0 20px;
 }
+.wrap_sec_vote .sec_btn_block{
+	text-align:center;
+	padding:20px 0;
+}
+.wrap_sec_vote .sec_voter_gift{
+	text-align:center;
+	padding:20px 0;
+	background:#eee;
+}
+
 
 
 .wrap_sec_vote .sec_list{
