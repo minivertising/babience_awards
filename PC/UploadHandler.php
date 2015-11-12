@@ -48,8 +48,8 @@ class UploadHandler
             'script_url' => $this->get_full_url().'/'.basename($this->get_server_var('SCRIPT_NAME')),
             //'upload_dir' => dirname($this->get_server_var('SCRIPT_FILENAME')).'/files/',
             //'upload_url' => $this->get_full_url().'/files/',
-            'upload_dir' => '../files/'.$_SESSION['mb_phone'].'/',
-            'upload_url' => '../files/'.$_SESSION['mb_phone'].'/',
+            'upload_dir' => '../files/'.$_SESSION['sel_nominee'].'/'.$_SESSION['mb_phone'].'/',
+            'upload_url' => '../files/'.$_SESSION['sel_nominee'].'/'.$_SESSION['mb_phone'].'/',
             'user_dirs' => false,
             'mkdir_mode' => 0755,
             'param_name' => 'files',
@@ -157,8 +157,8 @@ class UploadHandler
                     // Uncomment the following to force the max
                     // dimensions and e.g. create square thumbnails:
                     //'crop' => true,
-                    'max_width' => 80,
-                    'max_height' => 80
+                    'max_width' => 180,
+                    'max_height' => 120
                 )
             ),
             'print_response' => true
@@ -541,6 +541,7 @@ class UploadHandler
 
     protected function get_file_name($file_path, $name, $size, $type, $error,
             $index, $content_range) {
+		/*
         $name = $this->trim_file_name($file_path, $name, $size, $type, $error,
             $index, $content_range);
         return $this->get_unique_filename(
@@ -553,6 +554,10 @@ class UploadHandler
             $index,
             $content_range
         );
+		*/
+		$name = $this->trim_file_name($file_path, $name, $size, $type, $error,
+            $index, $content_range);
+        return $name;
     }
 
     protected function get_scaled_image_file_paths($file_name, $version) {

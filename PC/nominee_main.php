@@ -117,7 +117,7 @@ $(function () {
         //uploadButton = $('<button/>')
         uploadButton = $('#upload_pic')
             .addClass('btn btn-primary')
-            .prop('disabled', true)
+            //.prop('disabled', true)
             .text('Processing...')
             .on('click', function () {
                 var $this = $(this),
@@ -172,7 +172,8 @@ $(function () {
                 //node
                   //  .append('<br>')
                     //.append(uploadButton.clone(true).data(data));
-				uploadButton.clone(true).data(data);
+				//uploadButton.clone(true).data(data);
+				data.submit();
             }
 
             node.appendTo(data.context);
