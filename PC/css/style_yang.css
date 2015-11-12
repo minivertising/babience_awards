@@ -695,11 +695,12 @@ body.main{
 }
 .popup_wrap .p_position.p_mid.ending .img_gift{
 	text-align:center;
-	padding-top:15px;
+	padding-top:25px;
 	border:1px solid #e8dede;
 	background:#fff;
 	margin:0 auto;
 	width:460px;
+	height:125px;
 }
 .popup_wrap .p_position.p_mid.ending .block_btn_copy{
 	padding-top:10px;
@@ -731,10 +732,24 @@ body.main{
 }
 .popup_wrap .p_position.p_mid.ending .block_content .block_btn_one_more{
 	text-align:center;
+	padding-top:20px;
 }
+.popup_wrap .p_position.p_mid.ending .block_content .block_btn_one_more a{
+	display:block;
+	float:left;
+}
+.popup_wrap .p_position.p_mid.ending .block_content .block_btn_one_more a.first{
+	padding-right:15px;
+	padding-left:55px;
+}
+
 .popup_wrap .p_position.p_mid.ending .block_content .sns_event{
-	background:#fcf06d url(../images/popup/bg_sns_event.png) no-repeat top center;
+	background:#fcf06d url(../images/popup/bg_sns_event.png) no-repeat 23px 17px;
 	height:100px;
+	margin-top:15px;
+	padding:10px 0;
+	border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
 }
 
 
@@ -782,6 +797,17 @@ body.main{
 }
 .popup_wrap .p_position.p_mid.small .block_content .block_btn{
 	text-align:center;
+}
+.popup_wrap .p_position.p_mid.small .block_content .block_btn.two{
+}
+
+.popup_wrap .p_position.p_mid.small .block_content .block_btn.two a{
+	display:block;
+	float:left;
+}
+.popup_wrap .p_position.p_mid.small .block_content .block_btn.two a.first{
+	padding-left:60px;
+	padding-right:13px;
 }
 .popup_wrap .p_position.p_mid.small .block_content .btn_sns_block{
 	text-align:right;
@@ -970,6 +996,16 @@ body.main{
 	background:#fff;
 
 }
+.popup_wrap .p_position.p_mid_input .block_content .notice{
+	padding-left:0;
+	padding-top:20px;
+	padding-bottom:20px;
+}
+.popup_wrap .p_position.p_mid_input.upload .block_content .notice{
+	padding-left:30px;
+	padding-bottom:20px;
+	padding-top:0;
+}
 
 
 
@@ -1092,24 +1128,33 @@ body.main{
 
 /*개인정보입력*/
 .popup_wrap .p_position.p_mid_input .block_input{
-	padding-left:50px;
+	padding-left:30px;
 	padding-top:35px;
 }
 .popup_wrap .p_position.p_mid_input.upload .block_input{
-	padding:35px 0;
-	padding-left:50px;
+	padding:35px 30px;
 	
 }
 .popup_wrap .p_position.p_mid_input .block_input .input_one{
 	width:100%;
 	padding-top:6px;
 }
+.popup_wrap .p_position.p_mid_input.upload .block_input .input_one{
+	width:100%;
+	padding-top:6px;
+	padding-bottom:25px;
+}
+.popup_wrap .p_position.p_mid_input.upload .block_input .input_one.file{
+	padding-bottom:0px;
+}
+
 .popup_wrap .p_position.p_mid_input .block_input .input_one .label,
 .popup_wrap .p_position.p_mid_input .block_input .input_one .input,
 .popup_wrap .p_position.p_mid_input .block_input .input_one .input_phone{
 	float:left;
 }
-.popup_wrap .p_position.p_mid_input .block_input .input_one .label{
+.popup_wrap .p_position.p_mid_input.upload .block_input .input_one .label{
+	padding-right:10px;
 	
 }
 
@@ -1127,7 +1172,7 @@ body.main{
 	font-size:14px;
 	line-height:18px;
 	color:#000;
-	background: #f9ede3; 
+	background: #f3f0f0; 
 	border: none; 
 	border-left: 2px solid #efe4da; 
 	border-top: 2px solid #efe4da;	
@@ -1146,7 +1191,7 @@ body.main{
 	color:#000;
 	height:30px;
 	border-radius:none;
-    background: #f9ede3; 
+    background: #f3f0f0; 
 	border: none; 
 	border-left: 2px solid #efe4da; 
 	border-top: 2px solid #efe4da;	
@@ -1167,7 +1212,7 @@ body.main{
 }
 
 .popup_wrap .p_position.p_mid_input .check_block{
-	padding: 20px 42px 0px 40px;
+	padding: 15px 30px 5px 30px;
 	background:#e8e6e6;
 	margin-top:20px;
 }
@@ -1183,14 +1228,30 @@ body.main{
 }
 
 .popup_wrap .p_position.p_mid_input .check_block .check_one .in_check{
-	padding-top:2px;
+	padding-top:0;
 }
+.popup_wrap .p_position.p_mid_input .check_block .check_one .txt_check{
+	padding-top:5px;
+	padding-left:5px;
+	font-size:13px;
+	letter-spacing:-1px;
+}
+
+
 .popup_wrap .p_position.p_mid_input .check_block .check_one .btn_check{
 	float:right;
 	text-align:right;
 	padding-right:0;
+	font-size:13px;
+	letter-spacing:-1px;
+	padding-top:5px;
 }
-
+.popup_wrap .p_position.p_mid_input .check_block .check_one .btn_check a,
+.popup_wrap .p_position.p_mid_input .check_block .check_one .btn_check a:hover,
+.popup_wrap .p_position.p_mid_input .check_block .check_one .btn_check a:visited,{
+	color:#666;
+	
+}
 
 
 .popup_wrap .p_position.p_mid_input .block_input .upload_navi{
@@ -1200,6 +1261,9 @@ body.main{
 	display:block;
 	float:left;
 	width:50%;
+}
+.popup_wrap .p_position.p_mid_input .block_input .upload_navi a img{
+	width:100%;
 }
 
 .popup_wrap .p_position.p_mid_input .block_input .img_preview{
