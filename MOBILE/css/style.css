@@ -337,7 +337,7 @@ body{
 }
 
 .sec_list{
-	background:#f9eddc ;
+	background:#f3f0f0 ;
 	margin-top:-2%;
 	padding:20px 0 40px;
 }
@@ -591,9 +591,69 @@ body{
 	position:relative;
 	width:100%;
 	z-index:200;
-	background:#f9eddc;
+	background:#f3f0f0;
 	border-radius:0;
 }
+.popup_wrap .p_mid.p_position.pic{
+	position:relative;
+	width:95%;
+	margin:10px auto;
+	z-index:200;
+	background:#f3f0f0;
+	border-radius:5px;
+}
+
+.popup_wrap .p_mid.p_position.pic .block_content.view_pic{
+	padding:2%;
+	width:96%;
+}
+.popup_wrap .p_mid.p_position.pic .block_content.view_pic .title{
+	padding-bottom:10px;
+}
+.popup_wrap .p_mid.p_position.pic .block_content.view_pic .img_pic{
+	width:100%;
+}
+.popup_wrap .p_mid.p_position.pic .block_content.view_pic .img_pic .pic{
+	text-align:center;
+	border:1px solid #ccc;
+	position:relative;
+
+}
+.popup_wrap .p_mid.p_position.pic .block_content.view_pic .img_pic .pic img{
+	width:100%;
+
+}
+
+.popup_wrap .p_mid.p_position.pic .block_content.view_pic .img_pic .info{
+	background:#fff;
+	padding:7px;
+	padding-bottom:2px;
+}
+.popup_wrap .p_mid.p_position.pic .block_content.view_pic .img_pic .info .inner_info{
+	width:100%;
+}
+
+.popup_wrap .p_mid.p_position.pic .block_content.view_pic .img_pic .info .inner_info .name,
+.popup_wrap .p_mid.p_position.pic .block_content.view_pic .img_pic .info .inner_info .num{
+	float:left;
+	width:50%;
+	font-size:14px;
+	font-weight:bold;
+}
+.popup_wrap .p_mid.p_position.pic .block_content.view_pic .img_pic .info .inner_info .num{
+	float:right;
+	text-align:right;
+	width:50%;
+}
+
+.popup_wrap .p_mid.p_position.pic .block_content.view_pic .btn_block{
+	text-align:center;
+	padding-top:10px;
+}
+.popup_wrap .p_mid.p_position.pic .block_content.view_pic .btn_block a img{
+	width:50%;
+}
+
 .popup_wrap .p_mid.p_position.movie{
 	position:relative;
 	width:100%;
@@ -604,8 +664,8 @@ body{
 	width:95%;
 	z-index:200;
 	margin:0 auto;
-	border-radius: 15px;
-	background:#f9eddc;
+	border-radius: 5px;
+	background:#f3f0f0;
 }
 .popup_wrap .p_mid.p_position.aleardy{
 }
@@ -615,7 +675,7 @@ body{
 	z-index:200;
 	margin:0 auto;
 	border-radius: 0;
-	background:#f9eddc;
+	background:#f3f0f0;
 }
 
 
@@ -683,8 +743,8 @@ body{
 	position:absolute;
 	padding:0 0 0;
 	z-index:300;
-	top:0;
-	right:17px;
+	top:12px;
+	right:12px;
 }
 .popup_wrap .p_mid.p_position.movie .block_close {
     width:100%;
@@ -700,7 +760,7 @@ body{
 	position:absolute;
 	padding:0;
 	z-index:300;
-	top:0;
+	top:15px;
 	right:15px;
 }
 .popup_wrap .block_close .btn_close{
@@ -709,7 +769,7 @@ body{
 	width:10%;
 }
 .popup_wrap .block_close .btn_close img{
-	width:95%;
+	width:90%;
 }
 .popup_wrap .title{
 	text-align:center;
@@ -724,7 +784,7 @@ body{
 	padding:7%;
 	width:86%;
 	height:86%;
-	font-size:14px;
+	font-size:12px;
 	line-height:18px;
 	color:#666;
 	overflow:scroll;
@@ -746,7 +806,7 @@ body{
 	width:100%;
 }
 .popup_wrap .p_position.aleardy .block_content .inner{
-	padding:10% 0 0;
+	padding:10% 0 10%;
 	width:100%;
 }
 .popup_wrap .p_position.movie .block_content .inner{
@@ -776,10 +836,26 @@ body{
 
 .popup_wrap .p_position .block_content .inner .block_input_bg{
 	background:#fff;
-	border-radius:15px;
 	width:95%;
 	margin:0 auto;
 	padding:10px 0;
+}
+.popup_wrap .p_position .block_content .inner .navi_upload{
+	margin:0 5%;
+}
+
+.popup_wrap .p_position .block_content .inner .navi_upload .inner_navi_up{
+	width:100%;
+}
+
+
+.popup_wrap .p_position .block_content .inner .navi_upload a{
+	width:50%;
+	display:block;
+	float:left;
+}
+.popup_wrap .p_position .block_content .inner .navi_upload a img{
+	width:100%;
 }
 
 .popup_wrap .p_position .block_content .inner .block_input{
@@ -922,6 +998,11 @@ body{
 .popup_wrap .p_position.aleardy .block_content .inner .block_btn img{
 	width:30%;
 }
+.popup_wrap .p_position.aleardy .block_content .inner .block_btn a.sear img{
+	width:25%;
+}
+
+
 .popup_wrap .p_position .block_content .inner .block_btn.send{
 	padding-bottom:20px;
 	padding-top:30px;
@@ -932,14 +1013,17 @@ body{
 	display:block;
 	text-align:center;
 }
-.popup_wrap .p_position .block_content .inner .block_btn a.common img{
-	width:40%;
+.popup_wrap .p_position .block_content .inner .block_btn a.common_1 img{
+	width:30%;
 }
 .popup_wrap .p_position .block_content .inner .block_btn a.common_2 img{
 	width:60%;
 }
 .popup_wrap .p_position .block_content .inner .block_btn a.common_3 img{
 	width:55%;
+}
+.popup_wrap .p_position .block_content .inner .block_btn a.common_45 img{
+	width:45%;
 }
 .popup_wrap .p_position .block_content .inner .block_btn a.left{
 	display:block;
@@ -1291,6 +1375,11 @@ html[xmlns] .clearfix {
 .blank{
 	width:0;
 }
+
+
+
+
+
 
 /* 팝업 jQuery ( Magnific-Popup ) 관련 CSS */
 /* Styles for dialog window */
