@@ -858,6 +858,22 @@ body{
 	width:100%;
 }
 
+.popup_wrap .p_position .block_content .inner .input_upload{
+	margin:0 5%;
+}
+.popup_wrap .p_position .block_content .inner .inner_input_upload{
+	width:100%;
+}
+.popup_wrap .p_position .block_content .inner .inner_input_upload .input,
+.popup_wrap .p_position .block_content .inner .inner_input_upload .btn{
+	float:left;
+	width:20%;
+}
+.popup_wrap .p_position .block_content .inner .inner_input_upload .input{
+	width:80%;
+}
+
+
 .popup_wrap .p_position .block_content .inner .block_input{
 	width:100%;
 	padding-top:5px;
@@ -913,9 +929,8 @@ body{
 }
 
 .popup_wrap .p_position .block_content .inner .block_input .input_txt.notice{
-	float:left;
-	width:75%;
-	padding-left:3.5%;
+	width:97%;
+	padding-left:3%;
 }
 .popup_wrap .p_position .block_content .inner .block_input.comment .input_txt{
 	width:75%;
