@@ -1272,7 +1272,7 @@ body.main{
 	padding-top:35px;
 }
 .popup_wrap .p_position.p_mid_input.upload .block_input{
-	padding:25px 30px;
+	padding:25px 30px 15px;
 	
 }
 .popup_wrap .p_position.p_mid_input .block_input .input_one{
@@ -1361,7 +1361,11 @@ body.main{
 	border-left: 2px solid #efe4da; 
 	border-top: 2px solid #efe4da;	
 }
-
+.popup_wrap .p_position.p_mid_input .block_input .input_one.file input{
+	color:#888;
+	font-weight:100;
+	font-size:12px;
+}
 
 
 .popup_wrap .p_position.p_mid_input .block_input .input_one select{
@@ -1430,9 +1434,7 @@ body.main{
 	letter-spacing:-1px;
 	padding-top:5px;
 }
-.popup_wrap .p_position.p_mid_input .check_block .check_one .btn_check a,
-.popup_wrap .p_position.p_mid_input .check_block .check_one .btn_check a:hover,
-.popup_wrap .p_position.p_mid_input .check_block .check_one .btn_check a:visited,{
+.popup_wrap .p_position.p_mid_input .check_block .check_one .btn_check a{
 	color:#666;
 	
 }
