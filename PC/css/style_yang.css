@@ -517,19 +517,23 @@ body.main{
 .wrap_sec_gift_num .sec_gift_num .gift_check .inner_gift_check .input_block{
 	padding:37px 0 0 345px;
 }
+.wrap_sec_gift_num .sec_gift_num .gift_check .inner_gift_check .input_block .input_phone{
+	padding-top:8px;
+}
 .wrap_sec_gift_num .sec_gift_num .gift_check .inner_gift_check .btn{
 	padding:37px 0 0 15px;
 }
 .wrap_sec_gift_num .sec_gift_num .gift_check .inner_gift_check .btn a{
 	display:block;
-	background:#fff;
+	background:none;
+	text-indent:-9999px;
 	width:100px;
 	height:80px;
 }
 .wrap_sec_gift_num .sec_gift_num .gift_check .inner_gift_check .input_block input,
 .wrap_sec_gift_num .sec_gift_num .gift_check .inner_gift_check .btn input,
 .wrap_sec_gift_num .sec_gift_num .gift_check .inner_gift_check .input_block select{
-	background: #F50004;
+	background: none;
 	height:25px;
 	padding:5px;
 	font-size:13px;
@@ -541,7 +545,13 @@ body.main{
 .wrap_sec_gift_num .sec_gift_num .gift_check .inner_gift_check .input_block .input_phone select{
 	width:70px;
 }
-
+.wrap_sec_gift_num .sec_gift_num .gift_check .inner_gift_check .input_block .in_name{
+	text-align:left;
+}
+.wrap_sec_gift_num .sec_gift_num .gift_check .inner_gift_check .input_block .input_phone select{
+	width:80px;
+	height:34px;
+}
 
 .wrap_sec_gift_num .sec_gift_num .gift_check .inner_gift_check .input_block .input_phone .inner_phone{
 	width:100%;
@@ -549,7 +559,8 @@ body.main{
 
 .wrap_sec_gift_num .sec_gift_num .gift_check .inner_gift_check .input_block .input_phone .inner_phone .phone_ip{
 	float:left;
-	width:83px;
+	width:87px;
+	text-align:left;
 }
 
 .wrap_sec_gift_num .sec_gift_num .gift{
@@ -560,6 +571,13 @@ body.main{
 	padding-top:70px;
 }
 
+
+.wrap_sec_gift_num .sec_gift_num .btn_go_home{
+	padding:10px 0;
+}
+.wrap_sec_gift_num .sec_gift_num .notice_gift_num{
+	padding:10px 0 60px;
+}
 
 
 
@@ -1378,7 +1396,7 @@ body.main{
 	line-height:18px;
 	color:#000;
 	height:30px;
-	border-radius:none;
+	border-radius:none !important;
     background: #f3f0f0; 
 	border: none; 
 	border-left: 2px solid #efe4da; 
