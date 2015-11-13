@@ -1208,9 +1208,26 @@ body.main{
 .popup_wrap .p_position.p_mid_input .block_content .title{
 	padding-top:40px;
 }
+.popup_wrap .p_position.p_mid .block_content .title.sear{
+	padding-top:35px;
+}
+.popup_wrap .p_position.p_mid .block_content .search_input{
+	background:#fff;
+	border:1px solid #ccc;
+	margin:0 50px 10px;
+}
+.popup_wrap .p_position.p_mid .block_content .search_input .inner_search{
+	width:300px;
+	padding:20px 0px 20px 70px;
+}
 
-
-
+.popup_wrap .p_position.p_mid .block_content .search_input .inner_search .label,
+.popup_wrap .p_position.p_mid .block_content .search_input .inner_search .input{
+	float:left;
+}
+.popup_wrap .p_position.p_mid .block_content .search_input .inner_search .label{
+	padding-right:10px;
+}
 
 /*****팝업별 버튼 위치 조정*****/
 /*디폴트 버튼 스타일*/
@@ -1330,7 +1347,8 @@ body.main{
 	padding-left:0;
 }
 
-.popup_wrap .p_position.p_mid_input .block_input .input_one input{
+.popup_wrap .p_position.p_mid_input .block_input .input_one input,
+.popup_wrap .p_position.p_mid .block_content .search_input .inner_search .input input{
 	padding:5px 3px;
 	width:160px;
 	font-family:'나눔고딕',nanumgothic,'돋움',Dotum,Helvetica,'Apple SD Gothic Neo',Sans-serif;
