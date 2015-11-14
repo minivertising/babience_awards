@@ -116,6 +116,11 @@ function ins_info()
 					$("#cboxLoadedContent").height(602);
 					$("#cboxContent").css("background","none");
 				}});
+			}else if (response == "Y1"){
+				$.colorbox({width:"542px", height:"642px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#reg_pic_popup", onComplete: function(){
+					$("#cboxLoadedContent").height(602);
+					$("#cboxContent").css("background","none");
+				}});
 			}else if (response == "D"){
 				$.colorbox({width:"542px", height:"342px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#dupli_nominee_popup", onComplete: function(){
 					$("#cboxLoadedContent").height(300);
@@ -298,6 +303,13 @@ function ins_pic_info()
 					$("#cboxLoadedContent").height(642);
 					$("#cboxContent").css("background","none");
 				}});
+				$("#nominee_gift_image").attr("src","images/popup/gift_coupon_delivery.png");
+			}else if (response	== "Y1"){
+				$.colorbox({width:"542px", height:"682px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#nominee_comp_popup", onComplete: function(){
+					$("#cboxLoadedContent").height(642);
+					$("#cboxContent").css("background","none");
+				}});
+				$("#nominee_gift_image").attr("src","images/popup/gift_coupon.png");
 			}else{
 				alert("접속자가 많아 참여가 지연되고 있습니다. 다시 참여해 주세요.");
 			}
@@ -338,9 +350,10 @@ function ins_vote_info()
 		return false;
 	}
 
-	if ($('#vote_agree').is(":checked") == false)
+	if (chk_vote_flag == 0)
 	{
-		alert("약관에 동의를 안 하셨습니다");
+		alert("개인정보 취급 동의/광고동의를 안 하셨습니다");
+		//chk_ins = 0;
 		return false;
 	}
 
@@ -354,13 +367,46 @@ function ins_vote_info()
 		},
 		url: "../main_exec.php",
 		success: function(response){
+			var resArray	= response.split("||");
+			//event_gift	= resArray[1];
+
 			alert(response);
-			if (response == "Y")
+			if (resArray[1] == "DELIVERY")
 			{
-				alert("투표가 완료 되었습니다.");
-				location.reload();
-			}else if (response == "D"){
-				alert("투표는 하루에 한번만 참여 가능합니다.");
+				$.colorbox({width:"542px", height:"682px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#vote_comp_popup", onComplete: function(){
+					$("#cboxLoadedContent").height(642);
+					$("#cboxContent").css("background","none");
+				}});
+				$("#vote_gift_image").attr("src","images/popup/gift_coupon_delivery.png");
+			}else if (resArray[1] == "DISCOUNT"){
+				$.colorbox({width:"542px", height:"682px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#vote_comp_popup", onComplete: function(){
+					$("#cboxLoadedContent").height(642);
+					$("#cboxContent").css("background","none");
+				}});
+				$("#vote_gift_image").attr("src","images/popup/gift_coupon.png");
+			}else if (resArray[1] == "WATER"){
+				$.colorbox({width:"542px", height:"682px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#vote_comp_popup", onComplete: function(){
+					$("#cboxLoadedContent").height(642);
+					$("#cboxContent").css("background","none");
+				}});
+				$("#vote_gift_image").attr("src","images/popup/gift_coupon_waterbox.png");
+			}else if (resArray[1] == "SKIN"){
+				$.colorbox({width:"542px", height:"682px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#vote_comp_popup", onComplete: function(){
+					$("#cboxLoadedContent").height(642);
+					$("#cboxContent").css("background","none");
+				}});
+				$("#vote_gift_image").attr("src","images/popup/gift_coupon_skincare.png");
+			}else if (resArray[1] == "CLEAN"){
+				$.colorbox({width:"542px", height:"682px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#vote_comp_popup", onComplete: function(){
+					$("#cboxLoadedContent").height(642);
+					$("#cboxContent").css("background","none");
+				}});
+				$("#vote_gift_image").attr("src","images/popup/gift_coupon_fabric.png");
+			}else if (resArray[1] == "no"){
+				$.colorbox({width:"542px", height:"342px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#dupli_vote_popup", onComplete: function(){
+					$("#cboxLoadedContent").height(300);
+					$("#cboxContent").css("background","none");
+				}});
 			}else{
 				alert("접속자가 많아 참여가 지연되고 있습니다. 다시 참여해 주세요.");
 			}
@@ -402,8 +448,8 @@ function open_pop(param)
 {
 	if (~param.indexOf("detail_pic_popup"))
 	{
-		$.colorbox({width:"642px", height:"547px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#"+param, onComplete: function(){
-			$("#cboxLoadedContent").height(505);
+		$.colorbox({width:"692px", height:"592px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#"+param, onComplete: function(){
+			$("#cboxLoadedContent").height(550);
 			$("#cboxContent").css("background","none");
 		}});
 	}else if (~param.indexOf("agree_popup")){
@@ -483,6 +529,18 @@ function mb_check()
 	}else{
 		$("#mb_agree").attr("src","images/popup/check.png");
 		chk_mb_flag = 0;
+	}
+}
+
+function vote_check()
+{
+	if (chk_vote_flag == 0)
+	{
+		$("#vote_agree").attr("src","images/popup/checked.png");
+		chk_vote_flag = 1;
+	}else{
+		$("#vote_agree").attr("src","images/popup/check.png");
+		chk_vote_flag = 0;
 	}
 }
 

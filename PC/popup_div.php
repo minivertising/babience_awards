@@ -1,4 +1,18 @@
 <div style="display:none;">
+<!----------------- 오프라인 행사안내 팝업 ----------------->
+<div id="offline_popup" class="popup_wrap">
+  <div class="p_mid_view off p_position">
+    <div class="block_close clearfix">
+      <a href="#" class="btn_close"><img src="images/popup/btn_close.png" /></a>
+    </div>
+    <div class="block_content">
+      <div class="inner">
+      </div><!--inner-->
+    </div>
+  </div>
+</div>
+<!----------------- 오프라인 행사안내 팝업 ----------------->
+
 <!----------------- 후보 등록 개인정보 입력 팝업 ----------------->
 <div id="reg_input_popup" class="popup_wrap">
   <div class="p_mid_input p_position">
@@ -239,6 +253,26 @@
 </div>
 <!----------------- 후보 등록 중복(동일항목 참여) 팝업 ----------------->
 
+<!----------------- 투표 중복 참여 팝업 ----------------->
+<div id="dupli_vote_popup" class="popup_wrap">
+  <div class="p_mid small p_position">
+    <div class="block_close clearfix">
+      <a href="#" onclick="$.colorbox.close();return false;" class="btn_close"><img src="images/popup/btn_close.png" /></a>
+    </div>
+    <div class="block_content">
+      <div class="inner">
+        <div class="title">
+          <img src="images/popup/title_vote_done.png" />
+        </div>
+        <div class="block_btn">
+          <a href="#" onclick="$.colorbox.close();change_tab('2');return false;"><img src="images/popup/btn_go_apply.png" /></a>
+        </div>
+      </div><!--inner-->
+    </div>
+  </div>
+</div>
+<!----------------- 투표 중복 참여 팝업 ----------------->
+
 <!----------------- 후보 등록 완료 팝업 ----------------->
 <div id="nominee_comp_popup" class="popup_wrap">
   <div class="p_mid ending p_position">
@@ -252,7 +286,7 @@
         </div>
         <div class="img_gift">
           <!--후보지원 선물 100%-->
-          <img src="images/popup/gift_coupon_delivery.png" /> <!--3000원 쿠폰-->
+          <img src="images/popup/gift_coupon.png" /> <!--3000원 쿠폰-->
           <!--<img src="images/popup/gift_coupon_delivery.png" /><!--무료배송쿠폰-->
         </div>
         <div class="block_btn_home">
@@ -273,6 +307,45 @@
 </div>
 <!----------------- 후보 등록 완료 팝업 ----------------->
 
+<!----------------- 투표 완료 팝업 ----------------->
+<div id="vote_comp_popup" class="popup_wrap">
+  <div class="p_mid ending p_position">
+    <div class="block_close clearfix">
+      <a href="#" onclick="$.colorbox.close();return false;" class="btn_close"><img src="images/popup/btn_close.png" /></a>
+    </div>
+    <div class="block_content">
+      <div class="inner">
+        <div class="title">
+          <img src="images/popup/title_thanks_applyer.png" />
+        </div>
+        <div class="img_gift">
+          <!--심사 100% 선물 2쿠폰-->
+          <img src="images/popup/gift_coupon.png" id="vote_gift_image" /> <!--3000원 쿠폰-->
+          <!--<img src="images/popup/gift_coupon_delivery.png" /> 무료배송쿠폰-->
+          <!--쿠폰중복 외 중복당첨 불가 선물 3가지-->
+          <!-- <img src="images/popup/gift_coupon_waterbox.png" /> 베이비워터 1박스 30명-->
+          <!--<img src="images/popup/gift_coupon_fabric.png" /> 섬유유연제 30명-->
+          <!--<img src="images/popup/gift_coupon_skincare.png" /> 스킨케어세트 30명-->
+        </div>
+        <div class="block_btn_home">
+          <a href="http://www.babience.com/index.jsp" target="_blank"><img src="images/popup/btn_go_home.png" /></a>
+        </div>
+        <div class="block_btn_one_more clearfix">
+          <a href="#" class="first"><img src="images/popup/btn_other_apply.png" /></a>
+          <a href="#"><img src="images/popup/btn_go_vote.png" /></a>
+        </div>
+        <div class="sns_event">
+          <a href="#" class="ks">ks</a>
+          <a href="#" class="fb">fb</a>
+          <a href="#" class="tw">tw</a>
+        </div>
+      </div><!--inner-->
+    </div>
+  </div>
+</div>
+<!----------------- 투표 완료 팝업 ----------------->
+
+
 <!----------------- 투표 개인정보 입력 팝업 ----------------->
 <div id="vote_input_popup" class="popup_wrap">
   <div class="p_mid_input p_position">
@@ -288,7 +361,7 @@
           <div class="block_input">
             <div class="input_one clearfix">
               <div class="label">
-              엄마/아빠 이름
+                <img src="images/popup/label_name.png" alt=""/>
               </div>
               <div class="input">
                 <input type="text" id="vote_name">
@@ -296,11 +369,11 @@
             </div>
             <div class="input_one clearfix">
               <div class="label">
-              휴대폰 번호
+                <img src="images/popup/label_phone.png" alt=""/>
               </div>
               <div class="input_phone clearfix">
                 <div class="phone_ip">
-                  <select id="vote_phone1">
+                  <select name="vote_phone1" id="vote_phone1">
                     <option value="010">010</option>
                     <option value="011">011</option>
                     <option value="016">016</option>
@@ -309,25 +382,23 @@
                     <option value="019">019</option>
                   </select>
                 </div>
-                <div class="phone_ip"><input type="tel" id="vote_phone2"></div>
-                <div class="phone_ip"><input type="tel" id="vote_phone3"></div>
+                <div class="phone_ip"><input type="tel" name="vote_phone2" id="vote_phone2" onkeyup="only_num(this);"></div>
+                <div class="phone_ip"><input type="tel" name="vote_phone3" id="vote_phone3" onkeyup="only_num(this);"></div>
               </div>
             </div>
-            <div>
-            * 입력하신 전화번호로 선물번호를 확인할 수 있는 문자가 발송됩니다.
-            * 입력하신 전화번호로 선물번호를 확인할 수 있는 문자가 발송됩니다.
+            <div class="notice">
+              <img src="images/popup/txt_notice_input.png" alt=""/>
             </div>
           </div>
-
           <div class="check_block">
             <div class="check_one first clearfix">
               <div class="in_check">
-                <input type="checkbox" name="vote_agree" id="vote_agree">
+                <img src="images/popup/check.png" name="vote_agree" id="vote_agree" onclick="vote_check()" style="cursor:pointer" alt=""/>
               </div>
-              <div class="txt_check">
+              <div class="txt_check" onclick="vote_check()" style="cursor:pointer" >
               개인정보 취급동의/광고동의
               </div>
-              <div class="btn_agree">
+              <div class="btn_check">
                 <a href="#" onclick="open_pop('agree_popup');return false;">자세히보기</a>
               </div>
             </div>  

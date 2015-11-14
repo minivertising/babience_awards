@@ -42,15 +42,22 @@ switch ($_REQUEST['exec'])
 			$query 	= "INSERT INTO ".$_gl['member_info_table']."(mb_ipaddr,mb_name,mb_phone,mb_sel_nominees,mb_regdate,mb_gubun,mb_media) values('".$_SERVER['REMOTE_ADDR']."','".$mb_name."','".$mb_phone."','".$sel_nominee."','".date("Y-m-d H:i:s")."','".$gubun."','".$media."')";
 			$result 	= mysqli_query($my_db, $query);
 
-			// 전화번호 세션 생성
-			$_SESSION['mb_phone']		= $mb_phone;
-			// 선택한 카테고리 세션 생성
-			$_SESSION['sel_nominee']		= $sel_nominee;
-
 			if ($result)
 				$flag	= "Y";
 			else
 				$flag	= "N";
+
+			if ($all_dupli_cnt > 0)
+				$flag	= "Y1";
+
+			// 전화번호 세션 생성
+			$_SESSION['mb_phone']		= $mb_phone;
+			// 선택한 카테고리 세션 생성
+			$_SESSION['sel_nominee']		= $sel_nominee;
+			// 당첨정보 생성
+			$_SESSION['nominee_gubun']		= $flag;
+
+
 		}
 		echo $flag;
 	break;
@@ -81,8 +88,15 @@ switch ($_REQUEST['exec'])
 			}
 		}
 
+		if ($_SESSION['nominee_gubun'] == "Y")
+		{
+			$serial	= BA_getSerial("N||DELIVERY");
+			send_lms($_SESSION['mb_phone'], $serial);
+		}
+
 		$query 	= "UPDATE ".$_gl['member_info_table']." SET mb_baby_name='".$mb_baby_name."', mb_upload_flag='".$upload_flag."', mb_upload_url='".$upload_url."', mb_thumb_url='".$thumb_url."' WHERE mb_phone='".$_SESSION['mb_phone']."' AND mb_sel_nominees='".$_SESSION['sel_nominee']."'";
 		$result 	= mysqli_query($my_db, $query);
+
 
 		if ($result)
 			$flag	= "Y";
@@ -106,7 +120,7 @@ switch ($_REQUEST['exec'])
 
 		if ($dupli_cnt > 0)
 		{
-			$flag	= "D";
+			$flag	= "D||no";
 		}else{
 			$winnerYN	= BA_winner_draw($vote_phone);
 			$serial		= BA_getSerial($winnerYN);
@@ -119,10 +133,7 @@ switch ($_REQUEST['exec'])
 			if ($winnerYN == "N||DELIVERY")
 				send_lms($vote_phone, $serial);
 
-			if ($result)
-				$flag	= "Y";
-			else
-				$flag	= "N";
+			$flag	= $winnerYN;
 		}
 		echo $flag;
 	break;

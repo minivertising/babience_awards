@@ -29,17 +29,17 @@
 		$discount_array = array("Y","N");
 
 		// 오늘의 이벤트 참여자 수 구하기
-		$total_query		= "SELECT * FROM ".$_gl['member_info_table']." WHERE mb_regdate like '%".date("Y-m-d")."%'";
+		$total_query		= "SELECT * FROM ".$_gl['voter_info_table']." WHERE vote_regdate like '%".date("Y-m-d")."%'";
 		$total_result		= mysqli_query($my_db, $total_query);
 		$total_num		= mysqli_num_rows($total_result);
 
 		// 중복 당첨 체크
-		$dupli_query		= "SELECT * FROM ".$_gl['member_info_table']." WHERE mb_phone='".$mb_phone."' AND mb_winner like '%Y%'";
+		$dupli_query		= "SELECT * FROM ".$_gl['voter_info_table']." WHERE vote_phone='".$mb_phone."' AND vote_winner like '%Y%'";
 		$dupli_result		= mysqli_query($my_db, $dupli_query);
 		$dupli_num		= mysqli_num_rows($dupli_result);
 
 		// 중복 참여자 체크
-		$dupli0_query		= "SELECT * FROM ".$_gl['member_info_table']." WHERE mb_phone='".$mb_phone."'";
+		$dupli0_query		= "SELECT * FROM ".$_gl['voter_info_table']." WHERE vote_phone='".$mb_phone."'";
 		$dupli0_result		= mysqli_query($my_db, $dupli0_query);
 		$dupli0_num		= mysqli_num_rows($dupli0_result);
 
