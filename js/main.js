@@ -44,6 +44,8 @@ function reg_nominee(param)
 		sel_nominee	= "3";
 	}else if (param == "4"){
 		sel_nominee	= "4";
+	}else if (param == "5"){
+		sel_nominee	= "5";
 	}
 	$.colorbox({width:"542px", height:"542px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#reg_input_popup", onComplete: function(){
 		$("#cboxLoadedContent").height(500);
@@ -115,7 +117,15 @@ function ins_info()
 					$("#cboxContent").css("background","none");
 				}});
 			}else if (response == "D"){
-				alert("해당 카테고리에는 이미 참여하셨습니다. 다른 카테고리에 참여해 주세요.");
+				$.colorbox({width:"542px", height:"342px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#dupli_nominee_popup", onComplete: function(){
+					$("#cboxLoadedContent").height(300);
+					$("#cboxContent").css("background","none");
+				}});
+			}else if (response == "AD"){
+				$.colorbox({width:"542px", height:"342px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#all_dupli_nominee_popup", onComplete: function(){
+					$("#cboxLoadedContent").height(300);
+					$("#cboxContent").css("background","none");
+				}});
 			}else{
 				alert("접속자가 많아 참여가 지연되고 있습니다. 다시 참여해 주세요.");
 			}
@@ -492,3 +502,47 @@ function nominee_search()
 	}});
 }
 
+function only_num(obj)
+{
+	var inText = obj.value;
+	var outText = "";
+	var flag = true;
+	var ret;
+	for(var i = 0; i < inText.length; i++)
+	{
+		ret = inText.charCodeAt(i);
+		if((ret < 48) || (ret > 57))
+		{
+			flag = false;
+		}
+		else
+		{
+			outText += inText.charAt(i);
+		}
+	}
+ 
+	if(flag == false)
+	{
+		alert("전화번호는 숫자입력만 가능합니다.");
+		obj.value = outText;
+		obj.focus();
+		return false;
+	} 
+	return true;
+}
+
+function tab_upload_use(param)
+{
+	if (param == "pic")
+	{
+		$("#tab_upload_image1").attr("src","images/popup/btn_upload_pic_on.png");
+		$("#tab_upload_image2").attr("src","images/popup/btn_upload_movie_off.png");
+		$("#mov_input_area").hide();
+		$("#pic_input_area").show();
+	}else{
+		$("#tab_upload_image1").attr("src","images/popup/btn_upload_pic_off.png");
+		$("#tab_upload_image2").attr("src","images/popup/btn_upload_movie_on.png");
+		$("#pic_input_area").hide();
+		$("#mov_input_area").show();
+	}
+}

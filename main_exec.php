@@ -27,9 +27,17 @@ switch ($_REQUEST['exec'])
 		$dupli_result 	= mysqli_query($my_db, $dupli_query);
 		$dupli_cnt	= mysqli_num_rows($dupli_result);
 
+		$all_dupli_query 	= "SELECT * FROM ".$_gl['member_info_table']." WHERE mb_phone='".$mb_phone."'";
+		$all_dupli_result 	= mysqli_query($my_db, $all_dupli_query);
+		$all_dupli_cnt	= mysqli_num_rows($all_dupli_result);
+
+
+
 		if ($dupli_cnt > 0)
 		{
 			$flag	= "D";
+			if ($all_dupli_cnt > 4)
+				$flag	= "AD";
 		}else{
 			$query 	= "INSERT INTO ".$_gl['member_info_table']."(mb_ipaddr,mb_name,mb_phone,mb_sel_nominees,mb_regdate,mb_gubun,mb_media) values('".$_SERVER['REMOTE_ADDR']."','".$mb_name."','".$mb_phone."','".$sel_nominee."','".date("Y-m-d H:i:s")."','".$gubun."','".$media."')";
 			$result 	= mysqli_query($my_db, $query);

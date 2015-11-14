@@ -35,8 +35,8 @@
                     <option value="019">019</option>
                   </select>
                 </div>
-                <div class="phone_ip"><input type="tel" name="mb_phone2" id="mb_phone2"></div>
-                <div class="phone_ip"><input type="tel" name="mb_phone3" id="mb_phone3"></div>
+                <div class="phone_ip"><input type="tel" name="mb_phone2" id="mb_phone2" onkeyup="only_num(this);"></div>
+                <div class="phone_ip"><input type="tel" name="mb_phone3" id="mb_phone3" onkeyup="only_num(this);"></div>
               </div>
             </div>
             <div class="notice">
@@ -48,7 +48,7 @@
               <div class="in_check">
                 <img src="images/popup/check.png" name="mb_agree" id="mb_agree" onclick="mb_check()" style="cursor:pointer" alt=""/>
               </div>
-              <div class="txt_check">
+              <div class="txt_check" onclick="mb_check()" style="cursor:pointer" >
               개인정보 취급동의/광고동의
               </div>
               <div class="btn_check">
@@ -92,72 +92,80 @@
   </div>
 </div> -->
 
-	<div id="reg_pic_popup" class="popup_wrap">
-   	  <div class="p_mid_input p_position upload">
-            <div class="block_close clearfix">
-                <a href="#" onclick="$.colorbox.close();return false;" class="btn_close"><img src="images/popup/btn_close.png" /></a>
-            </div>
-            <div class="block_content">
-            	<div class="inner">
-                	<div class="title">
-       	    	    	<img src="images/popup/title_upload.png" />
-                    </div>
-                    
-                    <div class="block_wrap">
-                        <div class="block_input">
-                            <div class="input_one clearfix">
-                                <div class="label">
-                                     <img src="images/popup/label_baby_name.png" />
-                                </div>
-                                <div class="input">
-                                    <input type="text" name="mb_baby_name" id="mb_baby_name">
-                                </div>
-                            </div>
-                            <div class="upload_navi clearfix">
-                            	<a href="#" class="up_pic"><img src="images/popup/btn_upload_pic_on.png" /></a>
-                                <a href="#" class="up_mv"><img src="images/popup/btn_upload_movie_off.png" /></a>
-                            </div>
-                            <div class="input_one file clearfix">
-                                <div class="input">
-                                    <input type="text" id="image_up_name">
-                                </div>
-                                <div>
-                                	
-    <span class="btn btn-success fileinput-button">
-        <i class="glyphicon glyphicon-plus"></i>
-        <span><a href="#"><img src="images/popup/btn_select_file.png" alt=""/></a></span>
-        <!-- The file input field used as target for the file upload widget -->
-        <input id="fileupload" type="file" name="files" >
-    </span>
-    <!-- The global progress bar -->
-    <div id="progress" class="progress">
-        <div class="progress-bar progress-bar-success"></div>
+<div id="reg_pic_popup" class="popup_wrap">
+  <div class="p_mid_input p_position upload">
+    <div class="block_close clearfix">
+      <a href="#" onclick="$.colorbox.close();return false;" class="btn_close"><img src="images/popup/btn_close.png" /></a>
     </div>
-
-
-                                </div>
-                            </div>
-							<div class="img_preview">
-    <!-- The container for the uploaded files -->
-    <div id="files" class="files">
-	</div>
-                            </div>
-                            
-                        </div><!--end:block_input-->
-    
-                       
-                    </div>
-                    <div class="notice">
-                        <img src="images/popup/txt_upload_notice.png" alt=""/>
-                    </div>
-                    
-                    <div class="btn_block">
-                        <a href="#" onclick="ins_pic_info();return false;"><img src="images/popup/btn_apply.png" alt=""/></a>
-                    </div>
-                </div><!--inner-->
-            </div>
+    <div class="block_content">
+      <div class="inner">
+        <div class="title">
+          <img src="images/popup/title_upload.png" />
         </div>
-	</div>
+        <div class="block_wrap">
+          <div class="block_input">
+            <div class="input_one nameinput clearfix">
+              <div class="label">
+                <img src="images/popup/label_baby_name.png" />
+              </div>
+              <div class="input">
+                <input type="text" name="mb_baby_name" id="mb_baby_name">
+              </div>
+            </div>
+            <div class="upload_navi clearfix">
+              <a href="#" class="up_pic" onclick="tab_upload_use('pic');return false;"><img src="images/popup/btn_upload_pic_on.png" id="tab_upload_image1" /></a>
+              <a href="#" class="up_mv" onclick="tab_upload_use('mov');return false;"><img src="images/popup/btn_upload_movie_off.png" id="tab_upload_image2" /></a>
+            </div>
+            <div class="input_one file clearfix" id="pic_input_area">
+              <div class="inner_file clearfix">
+                <div class="input">
+                  <input type="text" id="image_up_name">
+                </div>
+                <div class="btn">
+                  <span class="btn btn-success fileinput-button">
+                    <i class="glyphicon glyphicon-plus"></i>
+                    <span><a href="#"><img src="images/popup/btn_select_file.png" alt=""/></a></span>
+                    <!-- The file input field used as target for the file upload widget -->
+                    <input id="fileupload" type="file" name="files" >
+                  </span>
+                  <!-- The global progress bar -->
+                  <div id="progress" class="progress">
+                    <div class="progress-bar progress-bar-success"></div>
+                  </div>
+                  <!-- <a href="#"><img src="images/popup/btn_select_file.png" alt=""/></a> -->
+                </div>
+              </div>
+              <div class="pre_img" style="width:175px;height:109px">
+                <!-- The container for the uploaded files -->
+                <div id="files" class="files">
+                  <img src="images/popup/pre_img.jpg" alt=""/>
+                </div>
+              </div>
+            </div>
+            <div class="input_one movie clearfix" id="mov_input_area" style="display:none;">
+              <div class="inner_movie_url clearfix">
+                <div class="input">
+                  <input type="text" id="youtube_url">
+                </div>
+                <div class="btn">
+                  <a href="#" onclick="alert('영상이 올라갔습니다.');return false;"><img src="images/popup/btn_select_url.png" alt=""/></a>
+                </div>
+              </div>
+            </div>
+            <div class="data_url">
+            </div>
+          </div><!--end:block_input-->
+        </div>
+        <div class="notice">
+          <img src="images/popup/txt_upload_notice.png" alt=""/>
+        </div>
+        <div class="btn_block">
+          <a href="#" onclick="ins_pic_info();return false;"><img src="images/popup/btn_apply.png" alt=""/></a>
+        </div>
+      </div><!--inner-->
+    </div>
+  </div>
+</div>
 <!----------------- 후보 등록 사진 or 유튜브영상 입력 팝업 ----------------->
 
 <!----------------- 후보자 검색 팝업 ----------------->
@@ -190,11 +198,52 @@
 </div>
 <!----------------- 후보자 검색 팝업 ----------------->
 
+<!----------------- 후보 등록 중복(동일항목 참여) 팝업 ----------------->
+<div id="dupli_nominee_popup" class="popup_wrap">
+  <div class="p_mid small p_position">
+    <div class="block_close clearfix">
+      <a href="#" onclick="$.colorbox.close();return false;" class="btn_close"><img src="images/popup/btn_close.png" /></a>
+    </div>
+    <div class="block_content">
+      <div class="inner">
+        <div class="title">
+          <img src="images/popup/title_contest_done.png" />
+        </div>
+        <div class="block_btn two clearfix">
+          <a href="#" onclick="$.colorbox.close();change_tab('3');return false;" class="first"><img src="images/popup/btn_go_vote.png" /></a>
+          <a href="#" onclick="$.colorbox.close();"><img src="images/popup/btn_other_apply.png" /></a>
+        </div>
+      </div><!--inner-->
+    </div>
+  </div>
+</div>
+<!----------------- 후보 등록 중복(동일항목 참여) 팝업 ----------------->
+
+<!----------------- 후보 등록 중복(동일항목 참여) 팝업 ----------------->
+<div id="all_dupli_nominee_popup" class="popup_wrap">
+  <div class="p_mid small p_position">
+    <div class="block_close clearfix">
+      <a href="#" onclick="$.colorbox.close();return false;" class="btn_close"><img src="images/popup/btn_close.png" /></a>
+    </div>
+    <div class="block_content">
+      <div class="inner">
+        <div class="title">
+          <img src="images/popup/title_contest_all_done.png" />
+        </div>
+        <div class="block_btn">
+          <a href="#" onclick="$.colorbox.close();change_tab('3');return false;"><img src="images/popup/btn_go_vote.png" /></a>
+        </div>
+      </div><!--inner-->
+    </div>
+  </div>
+</div>
+<!----------------- 후보 등록 중복(동일항목 참여) 팝업 ----------------->
+
 <!----------------- 후보 등록 완료 팝업 ----------------->
 <div id="nominee_comp_popup" class="popup_wrap">
   <div class="p_mid ending p_position">
     <div class="block_close clearfix">
-      <a href="#" class="btn_close"><img src="images/popup/btn_close.png" /></a>
+      <a href="#" onclick="$.colorbox.close();return false;" class="btn_close"><img src="images/popup/btn_close.png" /></a>
     </div>
     <div class="block_content">
       <div class="inner">
@@ -202,19 +251,21 @@
           <img src="images/popup/title_thanks_applyer.png" />
         </div>
         <div class="img_gift">
-          <img src="images/popup/img_gift_coupon.png" />
+          <!--후보지원 선물 100%-->
+          <img src="images/popup/gift_coupon_delivery.png" /> <!--3000원 쿠폰-->
+          <!--<img src="images/popup/gift_coupon_delivery.png" /><!--무료배송쿠폰-->
         </div>
         <div class="block_btn_home">
-          <a href="#"><img src="images/popup/btn_go_home.png" /></a>
+          <a href="http://www.babience.com/index.jsp" target="_blank"><img src="images/popup/btn_go_home.png" /></a>
         </div>
         <div class="block_btn_one_more clearfix">
-          <a href="#" class="first"><img src="images/popup/btn_other_apply.png" /></a>
-          <a href="#"><img src="images/popup/btn_go_vote.png" /></a>
+          <a href="#" onclick="$.colorbox.close();return false;" class="first"><img src="images/popup/btn_other_apply.png" /></a>
+          <a href="#" onclick="$.colorbox.close();change_tab('3');return false;"><img src="images/popup/btn_go_vote.png" /></a>
         </div>
         <div class="sns_event">
-          <a href="#">fb</a>
-          <a href="#">fb</a>
-          <a href="#">fb</a>
+          <a href="#" class="ks">ks</a>
+          <a href="#" class="fb">fb</a>
+          <a href="#" class="tw">tw</a>
         </div>
       </div><!--inner-->
     </div>
@@ -295,7 +346,7 @@
 <div id="agree_popup" class="popup_wrap">
   <div class="p_mid_agree p_position">
     <div class="block_close clearfix">
-      <a href="#" onclick="back_input();return false;" class="btn_close"><img src="images/popup/btn_close.png" /></a>
+      <a href="#" onclick="$.colorbox.close();return false;" class="btn_close"><img src="images/popup/btn_close.png" /></a>
     </div>
     <div class="block_content">
       <div class="inner">
@@ -308,6 +359,8 @@
         동의 거부 시 이벤트 참여에 제한을 받을 수 있습니다.
         (주)LG생활건강은 본 이벤트를 위하여 다음과 같이 고객님의 
         개인정보를 수집 및 이용합니다.<br><br>
+        이벤트 참여를 위해 업로드 하신 사진이나 영상은 마케팅 용도로 
+        소비자 동의없이 사용할 수 있습니다.<br><br>
         > 수집 · 이용 목적: 이벤트 혜택을 제공하기 위한 정보 전달
         : 이벤트 혜택 이용에 따른 본인확인, 고지사항 전달: 접속 빈도 
         파악 또는 회원의 서비스 이용에 대한 통계 <br><br>
