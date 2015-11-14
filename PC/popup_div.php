@@ -1,25 +1,73 @@
-<<<<<<< HEAD
 <div style="display:none;">
 <!----------------- 후보 등록 개인정보 입력 팝업 ----------------->
-<div id="reg_input_popup" class="popup_wrap" style="background:white">
-  <div class="p_mid_alert p_position">
+<div id="reg_input_popup" class="popup_wrap">
+  <div class="p_mid_input p_position">
     <div class="block_close clearfix">
-      <a href="#" onclick="$.colorbox.close();return false;" class="btn_close">X</a>
+      <a href="#" onclick="$.colorbox.close();return false;" class="btn_close"><img src="images/popup/btn_close.png" /></a>
     </div>
     <div class="block_content">
-      <h3>2015 베비언스 어워즈</h3>
-      <h3>개인정보를 입력해주세요</h3>
-      엄마(아빠)이름 <input type="text" name="mb_name" id="mb_name"><br />
-      전화번호 <input type="text" name="mb_phone" id="mb_phone"><br />
-      <input type="checkbox" name="mb_agree" id="mb_agree"> <a href="#">개인정보 취급동의/광고동의 자세히보기</a><br />
-	  <a href="#" onclick="ins_info();return false;">확인</a>
+      <div class="inner">
+        <div class="title">
+          <img src="images/popup/title_input.png" />
+        </div>
+        <div class="block_wrap">
+          <div class="block_input">
+            <div class="input_one clearfix">
+              <div class="label">
+                <img src="images/popup/label_name.png" alt=""/>
+              </div>
+              <div class="input">
+                <input type="text" name="mb_name" id="mb_name">
+              </div>
+            </div>
+            <div class="input_one clearfix">
+              <div class="label">
+                <img src="images/popup/label_phone.png" alt=""/>
+              </div>
+              <div class="input_phone clearfix">
+                <div class="phone_ip">
+                  <select name="mb_phone1" id="mb_phone1">
+                    <option value="010">010</option>
+                    <option value="011">011</option>
+                    <option value="016">016</option>
+                    <option value="017">017</option>
+                    <option value="018">018</option>
+                    <option value="019">019</option>
+                  </select>
+                </div>
+                <div class="phone_ip"><input type="tel" name="mb_phone2" id="mb_phone2"></div>
+                <div class="phone_ip"><input type="tel" name="mb_phone3" id="mb_phone3"></div>
+              </div>
+            </div>
+            <div class="notice">
+              <img src="images/popup/txt_notice_input.png" alt=""/>
+            </div>
+          </div>
+          <div class="check_block">
+            <div class="check_one first clearfix">
+              <div class="in_check">
+                <img src="images/popup/check.png" name="mb_agree" id="mb_agree" onclick="mb_check()" style="cursor:pointer" alt=""/>
+              </div>
+              <div class="txt_check">
+              개인정보 취급동의/광고동의
+              </div>
+              <div class="btn_check">
+                <a href="#" onclick="open_pop('agree_popup');return false;">자세히보기</a>
+              </div>
+            </div>  
+          </div>
+        </div>
+        <div class="btn_block">
+          <a href="#" onclick="ins_info();return false;"><img src="images/popup/btn_ok.png" alt=""/></a>
+        </div>
+      </div><!--inner-->
     </div>
   </div>
 </div>
 <!----------------- 후보 등록 개인정보 입력 팝업 ----------------->
 
 <!----------------- 후보 등록 사진 or 유튜브영상 입력 팝업 ----------------->
-<div id="reg_pic_popup" class="popup_wrap" style="background:white">
+<!-- <div id="reg_pic_popup" class="popup_wrap" style="background:white">
   <div class="p_mid_alert p_position">
     <div class="block_close clearfix">
       <a href="#" onclick="$.colorbox.close();return false;" class="btn_close">X</a>
@@ -32,55 +80,52 @@
     <span class="btn btn-success fileinput-button">
         <i class="glyphicon glyphicon-plus"></i>
         <span>사진 올리기</span>
-        <!-- The file input field used as target for the file upload widget -->
-        <input id="fileupload" type="file" name="files[]" multiple>
+        <input id="fileupload" type="file" name="files" >
     </span>
-    <!-- The global progress bar -->
     <div id="progress" class="progress">
         <div class="progress-bar progress-bar-success"></div>
     </div>
-    <!-- The container for the uploaded files -->
     <div id="files" class="files"></div>
-    유튜브 영상 URL : <input type="text" id="youtube_url">
-	<button id="upload_pic" text="영상 올리기" />
+    유튜브 영상 URL : <input type="text" id="youtube_url"><br /><br />
+	<a href="#" onclick="ins_pic_info();return false;">영상 올리기</a>
     </div>
   </div>
-</div>
-<!----------------- 후보 등록 사진 or 유튜브영상 입력 팝업 ----------------->
-=======
-<div style="display:none;">
-<!----------------- 후보 등록 개인정보 입력 팝업 ----------------->
-<div id="reg_input_popup" class="popup_wrap" style="background:white">
-  <div class="p_mid_alert p_position">
-    <div class="block_close clearfix">
-      <a href="#" onclick="$.colorbox.close();return false;" class="btn_close">X</a>
-    </div>
-    <div class="block_content">
-      <h3>2015 베비언스 어워즈</h3>
-      <h3>개인정보를 입력해주세요</h3>
-      엄마(아빠)이름 <input type="text" name="mb_name" id="mb_name"><br />
-      전화번호 <input type="text" name="mb_phone" id="mb_phone"><br />
-      <input type="checkbox" name="mb_agree" id="mb_agree"> <a href="#" onclick="open_pop('agree_popup');return false;">개인정보 취급동의/광고동의 자세히보기</a><br />
-	  <a href="#" onclick="ins_info();return false;">확인</a>
-    </div>
-  </div>
-</div>
-<!----------------- 후보 등록 개인정보 입력 팝업 ----------------->
+</div> -->
 
-<!----------------- 후보 등록 사진 or 유튜브영상 입력 팝업 ----------------->
-<div id="reg_pic_popup" class="popup_wrap" style="background:white">
-  <div class="p_mid_alert p_position">
-    <div class="block_close clearfix">
-      <a href="#" onclick="$.colorbox.close();return false;" class="btn_close">X</a>
-    </div>
-    <div class="block_content">
-      <h3>2015 베비언스 어워즈</h3>
-      <h3>후보자 등록을 위해</h3>
-      <h3>사진 또는 영상 url을 올려주세요</h3>
-      아기이름 <input type="text" name="mb_baby_name" id="mb_baby_name"><br />
+	<div id="reg_pic_popup" class="popup_wrap">
+   	  <div class="p_mid_input p_position upload">
+            <div class="block_close clearfix">
+                <a href="#" onclick="$.colorbox.close();return false;" class="btn_close"><img src="images/popup/btn_close.png" /></a>
+            </div>
+            <div class="block_content">
+            	<div class="inner">
+                	<div class="title">
+       	    	    	<img src="images/popup/title_upload.png" />
+                    </div>
+                    
+                    <div class="block_wrap">
+                        <div class="block_input">
+                            <div class="input_one clearfix">
+                                <div class="label">
+                                     <img src="images/popup/label_baby_name.png" />
+                                </div>
+                                <div class="input">
+                                    <input type="text" name="mb_baby_name" id="mb_baby_name">
+                                </div>
+                            </div>
+                            <div class="upload_navi clearfix">
+                            	<a href="#" class="up_pic"><img src="images/popup/btn_upload_pic_on.png" /></a>
+                                <a href="#" class="up_mv"><img src="images/popup/btn_upload_movie_off.png" /></a>
+                            </div>
+                            <div class="input_one file clearfix">
+                                <div class="input">
+                                    <input type="text" id="image_up_name">
+                                </div>
+                                <div>
+                                	
     <span class="btn btn-success fileinput-button">
         <i class="glyphicon glyphicon-plus"></i>
-        <span>사진 올리기</span>
+        <span><a href="#"><img src="images/popup/btn_select_file.png" alt=""/></a></span>
         <!-- The file input field used as target for the file upload widget -->
         <input id="fileupload" type="file" name="files" >
     </span>
@@ -88,14 +133,94 @@
     <div id="progress" class="progress">
         <div class="progress-bar progress-bar-success"></div>
     </div>
+
+
+                                </div>
+                            </div>
+							<div class="img_preview">
     <!-- The container for the uploaded files -->
-    <div id="files" class="files"></div>
-    유튜브 영상 URL : <input type="text" id="youtube_url"><br /><br />
-	<a href="#" onclick="ins_pic_info();return false;">영상 올리기</a>
+    <div id="files" class="files">
+	</div>
+                            </div>
+                            
+                        </div><!--end:block_input-->
+    
+                       
+                    </div>
+                    <div class="notice">
+                        <img src="images/popup/txt_upload_notice.png" alt=""/>
+                    </div>
+                    
+                    <div class="btn_block">
+                        <a href="#" onclick="ins_pic_info();return false;"><img src="images/popup/btn_apply.png" alt=""/></a>
+                    </div>
+                </div><!--inner-->
+            </div>
+        </div>
+	</div>
+<!----------------- 후보 등록 사진 or 유튜브영상 입력 팝업 ----------------->
+
+<!----------------- 후보자 검색 팝업 ----------------->
+<div id="nominee_search_popup" class="popup_wrap">
+  <div class="p_mid small p_position">
+    <div class="block_close clearfix">
+      <a href="#" onclick="$.colorbox.close();return false;" class="btn_close"><img src="images/popup/btn_close.png" /></a>
+    </div>
+    <div class="block_content">
+      <div class="inner">
+        <div class="title sear">
+          <img src="images/popup/title_search.png" />
+        </div>
+        <div class="search_input">
+          <div class="inner_search clearfix">
+            <div class="label">
+              <img src="images/popup/label_sear_name.png" />
+            </div>
+            <div class="input">
+              <input type="text" id="search_baby_name">
+            </div>
+          </div>
+        </div>
+        <div class="block_btn">
+          <a href="#" onclick="pop_search_nominee();return false;"><img src="images/popup/btn_search.png" /></a>
+        </div>
+      </div><!--inner-->
     </div>
   </div>
 </div>
-<!----------------- 후보 등록 사진 or 유튜브영상 입력 팝업 ----------------->
+<!----------------- 후보자 검색 팝업 ----------------->
+
+<!----------------- 후보 등록 완료 팝업 ----------------->
+<div id="nominee_comp_popup" class="popup_wrap">
+  <div class="p_mid ending p_position">
+    <div class="block_close clearfix">
+      <a href="#" class="btn_close"><img src="images/popup/btn_close.png" /></a>
+    </div>
+    <div class="block_content">
+      <div class="inner">
+        <div class="title">
+          <img src="images/popup/title_thanks_applyer.png" />
+        </div>
+        <div class="img_gift">
+          <img src="images/popup/img_gift_coupon.png" />
+        </div>
+        <div class="block_btn_home">
+          <a href="#"><img src="images/popup/btn_go_home.png" /></a>
+        </div>
+        <div class="block_btn_one_more clearfix">
+          <a href="#" class="first"><img src="images/popup/btn_other_apply.png" /></a>
+          <a href="#"><img src="images/popup/btn_go_vote.png" /></a>
+        </div>
+        <div class="sns_event">
+          <a href="#">fb</a>
+          <a href="#">fb</a>
+          <a href="#">fb</a>
+        </div>
+      </div><!--inner-->
+    </div>
+  </div>
+</div>
+<!----------------- 후보 등록 완료 팝업 ----------------->
 
 <!----------------- 투표 개인정보 입력 팝업 ----------------->
 <div id="vote_input_popup" class="popup_wrap">
@@ -170,7 +295,7 @@
 <div id="agree_popup" class="popup_wrap">
   <div class="p_mid_agree p_position">
     <div class="block_close clearfix">
-      <a href="#" onclick="$.colorbox.close();return false;" class="btn_close"><img src="images/popup/btn_close.png" /></a>
+      <a href="#" onclick="back_input();return false;" class="btn_close"><img src="images/popup/btn_close.png" /></a>
     </div>
     <div class="block_content">
       <div class="inner">
@@ -212,5 +337,4 @@
 </div>
 <!----------------- 약관 팝업 ----------------->
 
->>>>>>> 8d9c6cf3a86641a59116f09b7a7fc46bab372735
 </div>

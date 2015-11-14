@@ -1,60 +1,3 @@
-<<<<<<< HEAD
-<?
-	include_once   "./header.php";
-?>
-<body>
-  <div>
-    <a href="./nominee_main.php">후보 지원하기</a>
-    <a href="./vote_main.php">투표하기</a>
-  <div>
-  <div>
-    <a href="#" onmouseover="change_tab('1');">혜택 안내</a>
-    <a href="#" onmouseover="change_tab('2');">참여 방법</a>
-    <a href="#" onmouseover="change_tab('3');">오프라인 시상식</a>
-    <a href="#" onmouseover="change_tab('4');">나의 선물 확인</a>
-    <div id="benefit_contents" class="tab_contents" style="background:skyblue">
-      후보지원혜택 내용
-      Blah~Blah~Blah~Blah~Blah~
-    </div>
-    <div id="join_contents" class="tab_contents" style="display:none;background:gray">
-      참여방법 내용
-      Blah~Blah~Blah~Blah~Blah~
-    </div>
-    <div id="awards_contents" class="tab_contents" style="display:none;background:pink">
-      오프라인 시상식 내용
-      Blah~Blah~Blah~Blah~Blah~
-    </div>
-    <div id="mygift_contents" class="tab_contents" style="display:none;background:green">
-      나의 선물확인 내용
-      Blah~Blah~Blah~Blah~Blah~
-    </div>
-  <div>
-  <div>
-    <a href="#">스토리 공유</a>
-    <a href="#">페이스북 공유</a>
-    <a href="#">트위터 공유</a>
-  </div>
-</body>
-</html>
-<script type="text/javascript">
-function change_tab(param)
-{
-	if (param == "1")
-	{
-		$(".tab_contents").hide();
-		$("#benefit_contents").show();
-	}else if (param == "2"){
-		$(".tab_contents").hide();
-		$("#join_contents").show();
-	}else if (param == "3"){
-		$(".tab_contents").hide();
-		$("#awards_contents").show();
-	}else if (param == "4"){
-		$(".tab_contents").hide();
-		$("#mygift_contents").show();
-	}
-}
-=======
 <?
 	include_once   "./header.php";
 
@@ -126,7 +69,7 @@ function change_tab(param)
           <img src="images/sub_title_vote.png" alt=""/>
         </div>
         <div class="sear_baby">
-          <a href="#"><img src="images/btn_sear_baby_off.png" alt=""/></a>
+          <a href="#" onclick="nominee_search();return false;"><img src="images/btn_sear_baby_off.png" alt=""/></a>
         </div>
         <div class="sec_sorting">
           <div class="inner_sorting clearfix">
@@ -236,6 +179,53 @@ function change_tab(param)
       </div>
     </div>
 
+    <!-- 나의 선물 확인 탭 -->
+    <div id="mygift_contents" class="wrap_sec_gift_num change_tab" style="display:none">
+      <div class="sec_gift_num">
+        <div class="title">
+          <img src="images/title_gift_num.jpg" alt=""/>
+        </div>
+        <div class="gift_check">
+          <div class="inner_gift_check clearfix">
+            <div class="input_block">
+              <div class="in_name">
+                <input type="text" id="search_name">
+              </div>
+              <div class="input_phone">
+                <div class="inner_phone clearfix">
+                  <div class="phone_ip">
+                    <select id="search_phone1">
+                      <option value="010">010</option>
+                      <option value="011">011</option>
+                      <option value="016">016</option>
+                      <option value="017">017</option>
+                      <option value="018">018</option>
+                      <option value="019">019</option>
+                    </select>
+                  </div>
+                  <div class="phone_ip"><input type="tel" id="search_phone2"></div>
+                  <div class="phone_ip"><input type="tel" id="search_phone4"></div>
+                </div>
+              </div>
+            </div>
+            <div class="btn">
+              <a href="#" onclick="search_gift();return false;">찾기</a>
+            </div>
+          </div>
+        </div>
+        <div class="gift">
+          <div class="inner_gift">
+            <img src="images/gift_coupon.jpg" alt=""/>
+          </div>
+        </div>
+        <div class="btn_go_home">
+          <a href="http://www.babience.com/index.jsp" target="_blank"><img src="images/btn_go_home.jpg" alt=""/></a>
+        </div>
+        <div class="notice_gift_num">
+          <img src="images/txt_notice_gift_num.jpg" alt=""/>
+        </div>
+      </div>
+    </div>
 
     <div class="wrap_sec_contest_gift">              
       <div class="sec_contest_gift">
@@ -264,10 +254,10 @@ function change_tab(param)
 </html>
 <script type="text/javascript">
 var sel_nominee	= null;
-var img_name	= null;
-var vote_idx		= null;
-var vote_sort	= "all";
-
+var img_name		= null;
+var vote_idx			= null;
+var vote_sort		= "all";
+var chk_mb_flag	= 0;
 $(document).ready(function() {
 	//Kakao.init('9cfec622990737690124c0fd063e368b');
 	$("#cboxTopLeft").hide();
@@ -302,5 +292,4 @@ function pageRun(num)
 	});
 }
 
->>>>>>> 8d9c6cf3a86641a59116f09b7a7fc46bab372735
 </script>

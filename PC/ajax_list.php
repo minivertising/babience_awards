@@ -1,9 +1,9 @@
 <?
 	include_once "../config.php";
 
-	$vote_param		= $_REQUEST['vote_param'];
-	$pg				= $_REQUEST['pg'];
-
+	$vote_param			= $_REQUEST['vote_param'];
+	$pg						= $_REQUEST['pg'];
+	$search_baby_name	= $_REQUEST['search_baby_name'];
 	if ($vote_param == "all")
 		$query_txt	= "";
 	else if ($vote_param == "1")
@@ -16,6 +16,9 @@
 		$query_txt	= " AND mb_sel_nominees='4'";
 	else
 		$query_txt	= " AND mb_sel_nominees='5'";
+
+	if ($search_baby_name)
+		$query_txt	.= " AND mb_baby_name like '%".$search_baby_name."%'";
 ?>
           <div class="inner_list clearfix">
 <?

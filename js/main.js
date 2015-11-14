@@ -1,183 +1,3 @@
-<<<<<<< HEAD
-var chk_ins = 0;
-function input_info()
-{
-	var mb_name			= $("#mb_name").val();
-	var mb_phone			= $("#mb_phone").val();
-	var sel_movie			= $("#movie_num").val();
-	var use_agree			= $("#usechk").val();
-	var privacy_agree		= $("#privacychk").val();
-	var adver_agree		= $("#adverchk").val();
-
-	if (mb_name == "" || mb_name == "성함을 입력해 주세요.")
-	{
-
-		alert('이름을 입력해 주세요.');
-
-		$("#mb_name").focus();
-		chk_ins = 0;
-		return false;
-	}
-
-	if (mb_phone == "" || mb_phone == "휴대폰 번호를 입력해 주세요.(숫자만)")
-	{
-
-		alert('전화번호를 입력해 주세요.');
-
-		$("#mb_phone").focus();
-		chk_ins = 0;
-		return false;
-	}
-
-	if (use_agree == "N")
-	{
-		alert("개인정보 이용 약관에 동의를 안 하셨습니다");
-		chk_ins = 0;
-		return false;
-	}
-
-/*
-	if (privacy_agree == "N")
-	{
-		alert("개인정보 취급 위탁 동의를 안 하셨습니다");
-		chk_ins = 0;
-		return false;
-	}
-
-	if (adver_agree == "N")
-	{
-		alert("광고성 정보전송 약관에 동의를 안 하셨습니다");
-		chk_ins = 0;
-		return false;
-	}
-*/
-/*
-	if ($('#use_agree').is(":checked") == false)
-	{
-		alert("개인정보 활용 동의를 안 하셨습니다");
-		chk_ins = 0;
-		return false;
-	}
-
-	if ($('#privacy_agree').is(":checked") == false)
-	{
-		alert("개인정보 취급 위탁 동의를 안 하셨습니다");
-		chk_ins = 0;
-		return false;
-	}
-
-	if ($('#adver_agree').is(":checked") == false)
-	{
-		alert("광고 동의 약관에 동의를 안 하셨습니다");
-		chk_ins = 0;
-		return false;
-	}
-*/
-
-	$.ajax({
-		type:"POST",
-		data:{
-			"exec"					: "insert_info",
-			"mb_name"			: mb_name,
-			"mb_phone"			: mb_phone,
-			"sel_movie"			: sel_movie
-		},
-		url: "../main_exec.php",
-		success: function(response){
-			$.colorbox({width:"542px", height:"742px", inline:true, opacity:"0.9", closeButton:false, href:"#thanks_popup"});
-		}
-	});
-
-}
-
-function show_gift()
-{
-	$("#gift_link").colorbox({width:"712px", height:"652px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: true, fadeOut: 300, href:"#gift_popup", onComplete: function(){
-		$("#cboxLoadedContent").height(610);
-		$("#cboxContent").css("background","none");
-
-	},
-	onClosed: function(){
-		$("#cboxContent").css("background","#fff");
-	}});
-
-}
-function show_gift2()
-{
-	$.colorbox({width:"712px", height:"652px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: true, fadeOut: 300, href:"#gift_popup", onComplete: function(){
-		$("#cboxLoadedContent").height(610);
-		$("#cboxContent").css("background","none");
-	},
-	onClosed: function(){
-		$("#cboxContent").css("background","#fff");
-	}});
-}
-
-function show_join()
-{
-	$.colorbox({width:"592px", height:"522px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: true, fadeOut: 300, href:"#join_popup", onComplete: function(){
-		$("#cboxLoadedContent").height(480);
-		$("#cboxContent").css("background","none");
-	},
-	onClosed: function(){
-		$("#cboxContent").css("background","#fff");
-	}});
-}
-
-function show_notice()
-{
-	$.colorbox({width:"492px", height:"567px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: true, fadeOut: 300, href:"#notice_popup", onComplete: function(){
-		$("#cboxLoadedContent").height(526);
-		$("#cboxContent").css("background","none");
-	},
-	onClosed: function(){
-		$("#cboxContent").css("background","#fff");
-	}});
-}
-
-function back_input()
-{
-	$.colorbox({width:"492px", height:"632px", inline:true, opacity:"0.9", closeButton:false, href:"#insert_popup", onComplete:function(){
-		$("#cboxLoadedContent").height(592);
-		$("#cboxContent").css("background","none");
-	},
-	onClosed: function(){
-		$("#cboxContent").css("background","#fff");
-	}});
-}
-
-function show_use_agree()
-{
-	$.colorbox({width:"492px", height:"566px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: true, fadeOut: 300, href:"#use_agree_popup", onComplete: function(){
-		$("#cboxLoadedContent").height(526);
-		$("#cboxContent").css("background","none");
-	}});
-}
-
-function show_privacy_agree()
-{
-	$.colorbox({width:"492px", height:"566px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: true, fadeOut: 300, href:"#privacy_agree_popup", onComplete: function(){
-		$("#cboxLoadedContent").height(526);
-		$("#cboxContent").css("background","none");
-	}});
-}
-
-function show_adver_agree()
-{
-	$.colorbox({width:"492px", height:"566px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: true, fadeOut: 300, href:"#adver_agree_popup", onComplete: function(){
-		$("#cboxLoadedContent").height(526);
-		$("#cboxContent").css("background","none");
-	}});
-}
-
-function show_confirm()
-{
-	$.colorbox({width:"452px", height:"312px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: true, fadeOut: 300, href:"#confirm_popup", onComplete: function(){
-		$("#cboxLoadedContent").height(526);
-		$("#cboxContent").css("background","none");
-	}});
-}
-=======
 function change_tab(param)
 {
 	if (param == "1")
@@ -225,8 +45,8 @@ function reg_nominee(param)
 	}else if (param == "4"){
 		sel_nominee	= "4";
 	}
-	$.colorbox({width:"542px", height:"342px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#reg_input_popup", onComplete: function(){
-		$("#cboxLoadedContent").height(302);
+	$.colorbox({width:"542px", height:"542px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#reg_input_popup", onComplete: function(){
+		$("#cboxLoadedContent").height(500);
 		$("#cboxContent").css("background","none");
 	}});
 
@@ -235,9 +55,11 @@ function reg_nominee(param)
 function ins_info()
 {
 	var mb_name		= $("#mb_name").val();
-	var mb_phone		= $("#mb_phone").val();
+	var mb_phone1		= $("#mb_phone1").val();
+	var mb_phone2		= $("#mb_phone2").val();
+	var mb_phone3		= $("#mb_phone3").val();
+	var mb_phone		= mb_phone1 + mb_phone2 + mb_phone3;
 
-/*
 	if (mb_name == "")
 	{
 		alert('이름을 입력해 주세요.');
@@ -245,21 +67,36 @@ function ins_info()
 		//chk_ins = 0;
 		return false;
 	}
-*/
-	if (mb_phone == "")
+
+	if (mb_phone2 == "")
 	{
 		alert('전화번호를 입력해 주세요.');
-		$("#mb_phone").focus();
+		$("#mb_phone2").focus();
 		//chk_ins = 0;
 		return false;
 	}
 
+	if (mb_phone3 == "")
+	{
+		alert('전화번호를 입력해 주세요.');
+		$("#mb_phone3").focus();
+		//chk_ins = 0;
+		return false;
+	}
+
+	if (chk_mb_flag == 0)
+	{
+		alert("개인정보 취급 동의/광고동의를 안 하셨습니다");
+		//chk_ins = 0;
+		return false;
+	}
+/*
 	if ($('#mb_agree').is(":checked") == false)
 	{
 		alert("약관에 동의를 안 하셨습니다");
 		return false;
 	}
-
+*/
 	$.ajax({
 		type:"POST",
 		data:{
@@ -348,8 +185,9 @@ $(function () {
         data.context = $('<div/>').appendTo('#files');
         $.each(data.files, function (index, file) {
 			img_name = file.name;
-            var node = $('<p/>')
-                    .append($('<span/>').text(file.name));
+            var node = $('<p/>');
+                   // .append($('<span/>').text(file.name));
+			  $("#image_up_name").val(file.name);
             if (!index) {
                 //node
                   //  .append('<br>')
@@ -444,18 +282,15 @@ function ins_pic_info()
 		},
 		url: "../main_exec.php",
 		success: function(response){
-			alert(response);
-			/*
 			if (response	== "Y")
 			{
-				$.colorbox({width:"542px", height:"642px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#reg_pic_popup", onComplete: function(){
-					$("#cboxLoadedContent").height(602);
+				$.colorbox({width:"542px", height:"682px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#nominee_comp_popup", onComplete: function(){
+					$("#cboxLoadedContent").height(642);
 					$("#cboxContent").css("background","none");
 				}});
 			}else{
 				alert("접속자가 많아 참여가 지연되고 있습니다. 다시 참여해 주세요.");
 			}
-			*/
 		}
 	});
 }
@@ -519,6 +354,25 @@ function ins_vote_info()
 			}else{
 				alert("접속자가 많아 참여가 지연되고 있습니다. 다시 참여해 주세요.");
 			}
+		}
+	});
+}
+
+function pop_search_nominee()
+{
+	var search_baby_name	= $("#search_baby_name").val();
+	var vote_param				= "all";
+
+	$.ajax({
+		type:"POST",
+		data:{
+			"vote_param"			: vote_param,
+			"search_baby_name"	: search_baby_name
+		},
+		url: "./ajax_list.php",
+		success: function(response){
+			$.colorbox.close();
+			$(".sec_list").html(response);
 		}
 	});
 }
@@ -610,4 +464,31 @@ function sort_list(param)
 	});
 }
 
->>>>>>> 8d9c6cf3a86641a59116f09b7a7fc46bab372735
+function mb_check()
+{
+	if (chk_mb_flag == 0)
+	{
+		$("#mb_agree").attr("src","images/popup/checked.png");
+		chk_mb_flag = 1;
+	}else{
+		$("#mb_agree").attr("src","images/popup/check.png");
+		chk_mb_flag = 0;
+	}
+}
+
+function back_input()
+{
+	$.colorbox({width:"542px", height:"542px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#reg_input_popup", onComplete: function(){
+		$("#cboxLoadedContent").height(500);
+		$("#cboxContent").css("background","none");
+	}});
+}
+
+function nominee_search()
+{
+	$.colorbox({width:"542px", height:"342px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#nominee_search_popup", onComplete: function(){
+		$("#cboxLoadedContent").height(300);
+		$("#cboxContent").css("background","none");
+	}});
+}
+
