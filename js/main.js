@@ -50,6 +50,9 @@ function reg_nominee(param)
 	$.colorbox({width:"542px", height:"542px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#reg_input_popup", onComplete: function(){
 		$("#cboxLoadedContent").height(500);
 		$("#cboxContent").css("background","none");
+	},
+	onClosed: function(){
+		del_info();
 	}});
 
 }
@@ -115,21 +118,33 @@ function ins_info()
 				$.colorbox({width:"542px", height:"642px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#reg_pic_popup", onComplete: function(){
 					$("#cboxLoadedContent").height(602);
 					$("#cboxContent").css("background","none");
+				},
+				onClosed: function(){
+					del_info();
 				}});
 			}else if (response == "Y1"){
 				$.colorbox({width:"542px", height:"642px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#reg_pic_popup", onComplete: function(){
 					$("#cboxLoadedContent").height(602);
 					$("#cboxContent").css("background","none");
+				},
+				onClosed: function(){
+					del_info();
 				}});
 			}else if (response == "D"){
 				$.colorbox({width:"542px", height:"342px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#dupli_nominee_popup", onComplete: function(){
 					$("#cboxLoadedContent").height(300);
 					$("#cboxContent").css("background","none");
+				},
+				onClosed: function(){
+					del_info();
 				}});
 			}else if (response == "AD"){
 				$.colorbox({width:"542px", height:"342px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#all_dupli_nominee_popup", onComplete: function(){
 					$("#cboxLoadedContent").height(300);
 					$("#cboxContent").css("background","none");
+				},
+				onClosed: function(){
+					del_info();
 				}});
 			}else{
 				alert("접속자가 많아 참여가 지연되고 있습니다. 다시 참여해 주세요.");
@@ -302,12 +317,18 @@ function ins_pic_info()
 				$.colorbox({width:"542px", height:"682px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#nominee_comp_popup", onComplete: function(){
 					$("#cboxLoadedContent").height(642);
 					$("#cboxContent").css("background","none");
+				},
+				onClosed: function(){
+					del_info();
 				}});
 				$("#nominee_gift_image").attr("src","images/popup/gift_coupon_delivery.png");
 			}else if (response	== "Y1"){
 				$.colorbox({width:"542px", height:"682px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#nominee_comp_popup", onComplete: function(){
 					$("#cboxLoadedContent").height(642);
 					$("#cboxContent").css("background","none");
+				},
+				onClosed: function(){
+					del_info();
 				}});
 				$("#nominee_gift_image").attr("src","images/popup/gift_coupon.png");
 			}else{
@@ -376,36 +397,54 @@ function ins_vote_info()
 				$.colorbox({width:"542px", height:"682px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#vote_comp_popup", onComplete: function(){
 					$("#cboxLoadedContent").height(642);
 					$("#cboxContent").css("background","none");
+				},
+				onClosed: function(){
+					del_info();
 				}});
 				$("#vote_gift_image").attr("src","images/popup/gift_coupon_delivery.png");
 			}else if (resArray[1] == "DISCOUNT"){
 				$.colorbox({width:"542px", height:"682px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#vote_comp_popup", onComplete: function(){
 					$("#cboxLoadedContent").height(642);
 					$("#cboxContent").css("background","none");
+				},
+				onClosed: function(){
+					del_info();
 				}});
 				$("#vote_gift_image").attr("src","images/popup/gift_coupon.png");
 			}else if (resArray[1] == "WATER"){
 				$.colorbox({width:"542px", height:"682px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#vote_comp_popup", onComplete: function(){
 					$("#cboxLoadedContent").height(642);
 					$("#cboxContent").css("background","none");
+				},
+				onClosed: function(){
+					del_info();
 				}});
 				$("#vote_gift_image").attr("src","images/popup/gift_coupon_waterbox.png");
 			}else if (resArray[1] == "SKIN"){
 				$.colorbox({width:"542px", height:"682px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#vote_comp_popup", onComplete: function(){
 					$("#cboxLoadedContent").height(642);
 					$("#cboxContent").css("background","none");
+				},
+				onClosed: function(){
+					del_info();
 				}});
 				$("#vote_gift_image").attr("src","images/popup/gift_coupon_skincare.png");
 			}else if (resArray[1] == "CLEAN"){
 				$.colorbox({width:"542px", height:"682px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#vote_comp_popup", onComplete: function(){
 					$("#cboxLoadedContent").height(642);
 					$("#cboxContent").css("background","none");
+				},
+				onClosed: function(){
+					del_info();
 				}});
 				$("#vote_gift_image").attr("src","images/popup/gift_coupon_fabric.png");
 			}else if (resArray[1] == "no"){
 				$.colorbox({width:"542px", height:"342px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#dupli_vote_popup", onComplete: function(){
 					$("#cboxLoadedContent").height(300);
 					$("#cboxContent").css("background","none");
+				},
+				onClosed: function(){
+					del_info();
 				}});
 			}else{
 				alert("접속자가 많아 참여가 지연되고 있습니다. 다시 참여해 주세요.");
@@ -440,6 +479,9 @@ function go_vote(cidx)
 	$.colorbox({width:"542px", height:"642px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#vote_input_popup", onComplete: function(){
 		$("#cboxLoadedContent").height(602);
 		$("#cboxContent").css("background","none");
+	},
+	onClosed: function(){
+		del_info();
 	}});
 	
 }
@@ -451,11 +493,17 @@ function open_pop(param)
 		$.colorbox({width:"692px", height:"592px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#"+param, onComplete: function(){
 			$("#cboxLoadedContent").height(550);
 			$("#cboxContent").css("background","none");
+		},
+		onClosed: function(){
+			del_info();
 		}});
 	}else if (~param.indexOf("agree_popup")){
 		$.colorbox({width:"442px", height:"522px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: true, fadeOut: 300, href:"#agree_popup", onComplete: function(){
 			$("#cboxLoadedContent").height(480);
 			$("#cboxContent").css("background","none");
+		},
+		onClosed: function(){
+			del_info();
 		}});
 	}
 }
@@ -549,6 +597,9 @@ function back_input()
 	$.colorbox({width:"542px", height:"542px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#reg_input_popup", onComplete: function(){
 		$("#cboxLoadedContent").height(500);
 		$("#cboxContent").css("background","none");
+	},
+	onClosed: function(){
+		del_info();
 	}});
 }
 
@@ -557,6 +608,9 @@ function nominee_search()
 	$.colorbox({width:"542px", height:"342px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#nominee_search_popup", onComplete: function(){
 		$("#cboxLoadedContent").height(300);
 		$("#cboxContent").css("background","none");
+	},
+	onClosed: function(){
+		del_info();
 	}});
 }
 
@@ -603,4 +657,24 @@ function tab_upload_use(param)
 		$("#pic_input_area").hide();
 		$("#mov_input_area").show();
 	}
+}
+
+function del_info()
+{
+	$("#mb_name").val("");
+	$("#mb_phone1").val("010");
+	$("#mb_phone2").val("");
+	$("#mb_phone3").val("");
+	$("#mb_agree").attr("src","images/popup/check.png");
+	chk_mb_flag = 0;
+	$("#vote_name").val("");
+	$("#vote_phone1").val("010");
+	$("#vote_phone2").val("");
+	$("#vote_phone3").val("");
+	$("#vote_agree").attr("src","images/popup/check.png");
+	chk_vote_flag = 0;
+	$("#mb_baby_name").val("");
+	$("#image_up_name").val("");
+	$("#files").html('<img src="images/popup/pre_img.jpg" />');
+	$("#search_baby_name").val("");
 }

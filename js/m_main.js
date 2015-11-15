@@ -73,6 +73,7 @@ function reg_nominee(param)
 		$('#cboxLoadedContent').css('backgroundColor', bg);
 	},
 	onClosed: function(){
+		del_info();
 		$("#cboxContent").css("background","#fff");
 		$('html, body').css('overflow', ''); // page scrollbars off
 	}});
@@ -151,6 +152,7 @@ function ins_info()
 					$('#cboxLoadedContent').css('backgroundColor', bg);
 				},
 				onClosed: function(){
+					del_info();
 					$("#cboxContent").css("background","#fff");
 					$('html, body').css('overflow', ''); // page scrollbars off
 				}});
@@ -169,6 +171,7 @@ function ins_info()
 					$('#cboxLoadedContent').css('backgroundColor', bg);
 				},
 				onClosed: function(){
+					del_info();
 					$("#cboxContent").css("background","#fff");
 					$('html, body').css('overflow', ''); // page scrollbars off
 				}});
@@ -181,6 +184,7 @@ function ins_info()
 					$("#cboxWrapper").width($("body").width());
 				},
 				onClosed: function(){
+					del_info();
 					$("#cboxContent").css("background","#fff");
 				}});
 
@@ -193,6 +197,7 @@ function ins_info()
 					$("#cboxWrapper").width($("body").width());
 				},
 				onClosed: function(){
+					del_info();
 					$("#cboxContent").css("background","#fff");
 				}});
 			}else{
@@ -378,6 +383,7 @@ function ins_pic_info()
 					$('#cboxLoadedContent').css('backgroundColor', bg);
 				},
 				onClosed: function(){
+					del_info();
 					$("#cboxContent").css("background","#fff");
 					$('html, body').css('overflow', ''); // page scrollbars off
 				}});
@@ -398,6 +404,7 @@ function ins_pic_info()
 					$('#cboxLoadedContent').css('backgroundColor', bg);
 				},
 				onClosed: function(){
+					del_info();
 					$("#cboxContent").css("background","#fff");
 					$('html, body').css('overflow', ''); // page scrollbars off
 				}});
@@ -479,6 +486,7 @@ function ins_vote_info()
 					$('#cboxLoadedContent').css('backgroundColor', bg);
 				},
 				onClosed: function(){
+					del_info();
 					$("#cboxContent").css("background","#fff");
 					$('html, body').css('overflow', ''); // page scrollbars off
 				}});
@@ -498,6 +506,7 @@ function ins_vote_info()
 					$('#cboxLoadedContent').css('backgroundColor', bg);
 				},
 				onClosed: function(){
+					del_info();
 					$("#cboxContent").css("background","#fff");
 					$('html, body').css('overflow', ''); // page scrollbars off
 				}});
@@ -517,6 +526,7 @@ function ins_vote_info()
 					$('#cboxLoadedContent').css('backgroundColor', bg);
 				},
 				onClosed: function(){
+					del_info();
 					$("#cboxContent").css("background","#fff");
 					$('html, body').css('overflow', ''); // page scrollbars off
 				}});
@@ -536,6 +546,7 @@ function ins_vote_info()
 					$('#cboxLoadedContent').css('backgroundColor', bg);
 				},
 				onClosed: function(){
+					del_info();
 					$("#cboxContent").css("background","#fff");
 					$('html, body').css('overflow', ''); // page scrollbars off
 				}});
@@ -555,6 +566,7 @@ function ins_vote_info()
 					$('#cboxLoadedContent').css('backgroundColor', bg);
 				},
 				onClosed: function(){
+					del_info();
 					$("#cboxContent").css("background","#fff");
 					$('html, body').css('overflow', ''); // page scrollbars off
 				}});
@@ -568,6 +580,7 @@ function ins_vote_info()
 					$("#cboxWrapper").width($("body").width());
 				},
 				onClosed: function(){
+					del_info();
 					$("#cboxContent").css("background","#fff");
 				}});
 			}else{
@@ -615,6 +628,7 @@ function go_vote(cidx)
 		$('#cboxLoadedContent').css('backgroundColor', bg);
 	},
 	onClosed: function(){
+		del_info();
 		$("#cboxContent").css("background","#fff");
 		$('html, body').css('overflow', ''); // page scrollbars off
 	}});
@@ -632,6 +646,7 @@ function open_pop(param)
 			$("#cboxWrapper").width($("body").width());
 		},
 		onClosed: function(){
+			del_info();
 			$("#cboxContent").css("background","#fff");
 		}});
 
@@ -648,6 +663,7 @@ function open_pop(param)
 			$('html, body').css('overflow', ''); // page scrollbars off
 		}, 
 		onClosed: function(){
+			del_info();
 			$("#cboxContent").css("background","#fff");
 		}});
 	}
@@ -753,6 +769,7 @@ function back_input()
 		$('#cboxLoadedContent').css('backgroundColor', bg);
 	},
 	onClosed: function(){
+		del_info();
 		$("#cboxContent").css("background","#fff");
 		$('html, body').css('overflow', ''); // page scrollbars off
 	}});
@@ -769,6 +786,7 @@ function nominee_search()
 		$("#cboxWrapper").width($("body").width());
 	},
 	onClosed: function(){
+		del_info();
 		$("#cboxContent").css("background","#fff");
 	}});
 
@@ -813,4 +831,24 @@ function tab_upload_use(param)
 		$("#pic_input_area").hide();
 		$("#mov_input_area").show();
 	}
+}
+
+function del_info()
+{
+	$("#mb_name").val("");
+	$("#mb_phone1").val("010");
+	$("#mb_phone2").val("");
+	$("#mb_phone3").val("");
+	$("#mb_agree").attr("src","images/popup/check.png");
+	chk_mb_flag = 0;
+	$("#vote_name").val("");
+	$("#vote_phone1").val("010");
+	$("#vote_phone2").val("");
+	$("#vote_phone3").val("");
+	$("#vote_agree").attr("src","images/popup/check.png");
+	chk_vote_flag = 0;
+	$("#mb_baby_name").val("");
+	$("#image_up_name").val("");
+	$("#files").html('<img src="images/popup/pre_pic.png" />');
+	$("#search_baby_name").val("");
 }
