@@ -3,7 +3,7 @@
 <div id="offline_popup" class="popup_wrap">
   <div class="p_mid_view off p_position">
     <div class="block_close clearfix">
-      <a href="#" class="btn_close"><img src="images/popup/btn_close.png" /></a>
+      <a href="#" onclick="$.colorbox.close();return false;" class="btn_close"><img src="images/popup/btn_close.png" /></a>
     </div>
     <div class="block_content">
       <div class="inner">
@@ -233,7 +233,7 @@
 </div>
 <!----------------- 후보 등록 중복(동일항목 참여) 팝업 ----------------->
 
-<!----------------- 후보 등록 중복(동일항목 참여) 팝업 ----------------->
+<!----------------- 후보 등록 중복(5가지 모두 참여) 팝업 ----------------->
 <div id="all_dupli_nominee_popup" class="popup_wrap">
   <div class="p_mid small p_position">
     <div class="block_close clearfix">
@@ -251,7 +251,7 @@
     </div>
   </div>
 </div>
-<!----------------- 후보 등록 중복(동일항목 참여) 팝업 ----------------->
+<!----------------- 후보 등록 중복(5가지 모두 참여) 팝업 ----------------->
 
 <!----------------- 투표 중복 참여 팝업 ----------------->
 <div id="dupli_vote_popup" class="popup_wrap">
@@ -286,7 +286,7 @@
         </div>
         <div class="img_gift">
           <!--후보지원 선물 100%-->
-          <img src="images/popup/gift_coupon.png" /> <!--3000원 쿠폰-->
+          <img src="images/popup/gift_coupon.png" id="nominee_gift_image" /> <!--3000원 쿠폰-->
           <!--<img src="images/popup/gift_coupon_delivery.png" /><!--무료배송쿠폰-->
         </div>
         <div class="block_btn_home">

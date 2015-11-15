@@ -1,6 +1,5 @@
 <?
 	include_once   "./header.php";
-
 ?>
 <body class="main">
   <div class="sec_right_navi">

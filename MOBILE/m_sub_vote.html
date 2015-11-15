@@ -6,7 +6,7 @@
 content="width=device-width, user-scalable=yes,
 initial-scale=1.0, maximum-scale=3.0"/>
 <link rel="shortcut icon" type="image/x-icon" href="./img/icon/favicon.ico" />
-<title>모바일 메인</title>
+<title>모바일 투표하기</title>
 <!--[if lt IE 9]><script src="./js/html5shiv.js"></script><![endif]-->
 <link href="css/style.css" rel="stylesheet" type="text/css">
 <script src="js/vendor/modernizr-2.6.2.min.js"></script>
@@ -19,8 +19,8 @@ initial-scale=1.0, maximum-scale=3.0"/>
  	<div class="sec_top">
         <div class="logo"><a href="#"><img src="images/logo.png" width="95" alt=""/></a></div>
         <div class="btn_block">
-        	<a href="#">버튼1</a>
-            <a href="#">버튼1</a>
+        	<a href="#"><img src="images/btn_apply_main.png" alt=""/></a>
+            <a href="#"><img src="images/btn_vote_main.png" alt=""/></a>
         </div>
         <div class="bg"><img src="images/bg_top.jpg" alt=""/></div>
     </div>
@@ -36,48 +36,85 @@ initial-scale=1.0, maximum-scale=3.0"/>
     <div class="sec_vote_title">
     	<div class="bg"><img src="images/title_vote.jpg" alt=""/></div>
         <div class="btn_block">
-        	<a href="#"><img src="images/btn_sear.jpg" alt=""/></a>
+        	<a href="#"><img src="images/btn_sear.png" alt=""/></a>
+        </div>
+    </div>
+    
+    <div class="sec_sorting">
+    	<div class="inner_sort clearfix">
+        	<a href="#" class="sort_1"><img src="images/btn_sort_1_on.jpg" alt=""/></a>
+            <a href="#" class="sort_2"><img src="images/btn_sort_2_off.jpg" alt=""/></a>
+            <a href="#" class="sort_3"><img src="images/btn_sort_3_off.jpg" alt=""/></a>
+        </div>
+        <div class="inner_sort clearfix second">
+        	<a href="#" class="sort_1"><img src="images/btn_sort_4_off.jpg" alt=""/></a>
+            <a href="#" class="sort_2"><img src="images/btn_sort_5_off.jpg" alt=""/></a>
+            <a href="#" class="sort_3"><img src="images/btn_sort_6_off.jpg" alt=""/></a>
         </div>
     </div>
     
     <div class="sec_vote_list">
     	<div class="inner clearfix"> 
         
-        
+        	<!--one-->
         	<div class="one">
             	<div class="thumb">
             		<a href="#"><img src="images/test_thumb.jpg" alt=""/></a>
                 </div>
                 <div class="info_txt">
-                	1234
-                    <a href="#">투표하기</a>
+                	<div class="inner_info_txt clearfix">
+	                	<div class="num">
+                        	<div class="inner_num">
+                            	<div class="icon"><img src="images/icon_h.png" alt=""/></div>
+                                <div class="n">1,234</div>
+                            </div>
+                        </div>
+    	                <div class="btn"><a href="#"><img src="images/btn_vote_sub.jpg" alt=""/></a></div>
+                    </div>
                 </div>
-            </div>
+            </div> 
+            <!--one-->   
             
+        	<!--one-->
         	<div class="one">
             	<div class="thumb">
-            	<img src="images/test_thumb.jpg" alt=""/>
+            		<a href="#"><img src="images/test_thumb.jpg" alt=""/></a>
                 </div>
                 <div class="info_txt">
+                	<div class="inner_info_txt clearfix">
+	                	<div class="num">
+                        	<div class="inner_num">
+                            	<div class="icon"><img src="images/icon_h.png" alt=""/></div>
+                                <div class="n">1,234</div>
+                            </div>
+                        </div>
+    	                <div class="btn"><a href="#"><img src="images/btn_vote_sub.jpg" alt=""/></a></div>
+                    </div>
                 </div>
-            </div>            
+            </div> 
+            <!--one-->   
+            
             
             
         </div>
     </div>
     
-    
+    <!--5페이지씩 페이지네이션 노출--->
     <div class="sec_pagination">
     	<div class="inner clearfix">
-        	<a href="#"> < </a>
-            <a href="#"> 1 </a>
-            <a href="#"> > </a>
+        	<a href="#" class="arrow"><img src="images/arrow_left.png" width="24" alt=""/></a>
+            <a href="#" class="cnt selected"> 1 </a>
+            <a href="#" class="cnt"> 2 </a>
+            <a href="#" class="cnt"> 3 </a>
+            <a href="#" class="cnt"> 4 </a>
+            <a href="#" class="cnt"> 5 </a>
+            <a href="#" class="arrow"><img src="images/arrow_right.png" width="24" alt=""/></a>
         </div>
     </div>
     
     
     <div class="btn_also_apply">
-    	<a href="#"><img src="images/btn_also_apply.jpg" alt=""/></a>
+    	<a href="#"><img src="images/btn_also_apply.png" alt=""/></a>
     </div>
     
     
@@ -88,14 +125,17 @@ initial-scale=1.0, maximum-scale=3.0"/>
         
     
     <div class="sec_sns">
-    	<div class="txt">텍스트이미지</div>
-        <div class="btn_block">
-        	<div class="inner clearfix">
-                <a href="#"><img src="images/btn_kt.jpg" alt=""/></a>
-                <a href="#"><img src="images/btn_ks.jpg" alt=""/></a>
-                <a href="#"><img src="images/btn_fb.jpg" alt=""/></a>
-                <a href="#"><img src="images/btn_tw.jpg" alt=""/></a>
+    	<div class="inner_sec_sns clearfix">
+            
+            <div class="btn_block">
+                <div class="inner clearfix">
+                    <a href="#"><img src="images/btn_kt.jpg" alt=""/></a>
+                    <a href="#"><img src="images/btn_ks.jpg" alt=""/></a>
+                    <a href="#"><img src="images/btn_fb.jpg" alt=""/></a>
+                    <a href="#"><img src="images/btn_tw.jpg" alt=""/></a>
+                </div>
             </div>
+            <div class="txt"><img src="images/txt_sns.png" alt=""/></div>
         </div>
     </div>
     
