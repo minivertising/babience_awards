@@ -27,7 +27,7 @@
 	$page_size = 4;	// 한 페이지에 나타날 개수
 	$block_size = 5;	// 한 화면에 나타낼 페이지 번호 개수
 
-	$nominees_count_query = "SELECT count(*) FROM ".$_gl['member_info_table']." WHERE mb_upload_url is not null";
+	$nominees_count_query = "SELECT count(*) FROM ".$_gl['member_info_table']." WHERE mb_upload_url is not null ".$query_txt."";
 
 	list($nominees_count) = @mysqli_fetch_array(mysqli_query($my_db, $nominees_count_query));
 	$PAGE_CLASS = new Page($pg,$nominees_count,$page_size,$block_size);
@@ -35,7 +35,7 @@
 	$BLOCK_LIST = $PAGE_CLASS->blockList6();
 	$PAGE_UNCOUNT = $PAGE_CLASS->page_uncount;
 
-	$nominees_query		= "SELECT * FROM ".$_gl['member_info_table']." WHERE mb_upload_url is not null LIMIT $PAGE_CLASS->page_start, $page_size";
+	$nominees_query		= "SELECT * FROM ".$_gl['member_info_table']." WHERE mb_upload_url is not null ".$query_txt." LIMIT $PAGE_CLASS->page_start, $page_size";
 	$nominees_result		= mysqli_query($my_db, $nominees_query);
 	
 	while ($nominees_data = mysqli_fetch_array($nominees_result))

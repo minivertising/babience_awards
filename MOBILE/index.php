@@ -49,7 +49,7 @@
 <div class="sec_vote_title change_tab"  id="vote_contents" style="display:none">
   <div class="bg"><img src="images/title_vote.jpg" alt=""/></div>
   <div class="btn_block">
-    <a href="#"><img src="images/btn_sear.png" alt=""/></a>
+    <a href="#" onclick="nominee_search();return false;"><img src="images/btn_sear.png" alt=""/></a>
   </div>
 </div>
 <div class="sec_sorting change_tab"  id="vote_contents2" style="display:none">
@@ -164,7 +164,7 @@
   </div>
 </div>
 <div class="btn_also_apply change_tab"  id="vote_contents5" style="display:none">
-  <a href="#"><img src="images/btn_also_apply.png" alt=""/></a>
+  <a href="#" onclick="change_tab('2');"><img src="images/btn_also_apply.png" alt=""/></a>
 </div>
 <div class="sec_vote_gift change_tab"  id="vote_contents6" style="display:none">
   <div class="bg"><img src="images/bg_vote_gift.jpg" alt=""/></div>

@@ -465,39 +465,110 @@ function ins_vote_info()
 			alert(response);
 			if (resArray[1] == "DELIVERY")
 			{
-				$.colorbox({width:"542px", height:"682px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#vote_comp_popup", onComplete: function(){
-					$("#cboxLoadedContent").height(642);
+				$.colorbox({innerWidth:"100%", initialWidth:"95%", innerHeight:'100%', inline:true, opacity:"0", scrolling:false, closeButton:false, overlayClose: true, fadeOut: 300, href:"#vote_comp_popup", onComplete: function(){
 					$("#cboxContent").css("background","none");
+					$("#colorbox").width($("body").width());
+					$("#cboxWrapper").width($("body").width());
+				},
+				onLoad:function() {
+					$('html, body').css('overflow', 'hidden'); // page scrollbars off
+				}, 
+				onComplete: function(){
+					var bg = "#f3f0f0";
+					$('#cboxWrapper').css('backgroundColor', bg);
+					$('#cboxLoadedContent').css('backgroundColor', bg);
+				},
+				onClosed: function(){
+					$("#cboxContent").css("background","#fff");
+					$('html, body').css('overflow', ''); // page scrollbars off
 				}});
 				$("#vote_gift_image").attr("src","images/popup/gift_coupon_delivery.png");
 			}else if (resArray[1] == "DISCOUNT"){
-				$.colorbox({width:"542px", height:"682px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#vote_comp_popup", onComplete: function(){
-					$("#cboxLoadedContent").height(642);
+				$.colorbox({innerWidth:"100%", initialWidth:"95%", innerHeight:'100%', inline:true, opacity:"0", scrolling:false, closeButton:false, overlayClose: true, fadeOut: 300, href:"#vote_comp_popup", onComplete: function(){
 					$("#cboxContent").css("background","none");
+					$("#colorbox").width($("body").width());
+					$("#cboxWrapper").width($("body").width());
+				},
+				onLoad:function() {
+					$('html, body').css('overflow', 'hidden'); // page scrollbars off
+				}, 
+				onComplete: function(){
+					var bg = "#f3f0f0";
+					$('#cboxWrapper').css('backgroundColor', bg);
+					$('#cboxLoadedContent').css('backgroundColor', bg);
+				},
+				onClosed: function(){
+					$("#cboxContent").css("background","#fff");
+					$('html, body').css('overflow', ''); // page scrollbars off
 				}});
 				$("#vote_gift_image").attr("src","images/popup/gift_coupon.png");
 			}else if (resArray[1] == "WATER"){
-				$.colorbox({width:"542px", height:"682px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#vote_comp_popup", onComplete: function(){
-					$("#cboxLoadedContent").height(642);
+				$.colorbox({innerWidth:"100%", initialWidth:"95%", innerHeight:'100%', inline:true, opacity:"0", scrolling:false, closeButton:false, overlayClose: true, fadeOut: 300, href:"#vote_comp_popup", onComplete: function(){
 					$("#cboxContent").css("background","none");
+					$("#colorbox").width($("body").width());
+					$("#cboxWrapper").width($("body").width());
+				},
+				onLoad:function() {
+					$('html, body').css('overflow', 'hidden'); // page scrollbars off
+				}, 
+				onComplete: function(){
+					var bg = "#f3f0f0";
+					$('#cboxWrapper').css('backgroundColor', bg);
+					$('#cboxLoadedContent').css('backgroundColor', bg);
+				},
+				onClosed: function(){
+					$("#cboxContent").css("background","#fff");
+					$('html, body').css('overflow', ''); // page scrollbars off
 				}});
 				$("#vote_gift_image").attr("src","images/popup/gift_coupon_waterbox.png");
 			}else if (resArray[1] == "SKIN"){
-				$.colorbox({width:"542px", height:"682px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#vote_comp_popup", onComplete: function(){
-					$("#cboxLoadedContent").height(642);
+				$.colorbox({innerWidth:"100%", initialWidth:"95%", innerHeight:'100%', inline:true, opacity:"0", scrolling:false, closeButton:false, overlayClose: true, fadeOut: 300, href:"#vote_comp_popup", onComplete: function(){
 					$("#cboxContent").css("background","none");
+					$("#colorbox").width($("body").width());
+					$("#cboxWrapper").width($("body").width());
+				},
+				onLoad:function() {
+					$('html, body').css('overflow', 'hidden'); // page scrollbars off
+				}, 
+				onComplete: function(){
+					var bg = "#f3f0f0";
+					$('#cboxWrapper').css('backgroundColor', bg);
+					$('#cboxLoadedContent').css('backgroundColor', bg);
+				},
+				onClosed: function(){
+					$("#cboxContent").css("background","#fff");
+					$('html, body').css('overflow', ''); // page scrollbars off
 				}});
 				$("#vote_gift_image").attr("src","images/popup/gift_coupon_skincare.png");
 			}else if (resArray[1] == "CLEAN"){
-				$.colorbox({width:"542px", height:"682px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#vote_comp_popup", onComplete: function(){
-					$("#cboxLoadedContent").height(642);
+				$.colorbox({innerWidth:"100%", initialWidth:"95%", innerHeight:'100%', inline:true, opacity:"0", scrolling:false, closeButton:false, overlayClose: true, fadeOut: 300, href:"#vote_comp_popup", onComplete: function(){
 					$("#cboxContent").css("background","none");
+					$("#colorbox").width($("body").width());
+					$("#cboxWrapper").width($("body").width());
+				},
+				onLoad:function() {
+					$('html, body').css('overflow', 'hidden'); // page scrollbars off
+				}, 
+				onComplete: function(){
+					var bg = "#f3f0f0";
+					$('#cboxWrapper').css('backgroundColor', bg);
+					$('#cboxLoadedContent').css('backgroundColor', bg);
+				},
+				onClosed: function(){
+					$("#cboxContent").css("background","#fff");
+					$('html, body').css('overflow', ''); // page scrollbars off
 				}});
 				$("#vote_gift_image").attr("src","images/popup/gift_coupon_fabric.png");
 			}else if (resArray[1] == "no"){
-				$.colorbox({width:"542px", height:"342px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#dupli_vote_popup", onComplete: function(){
-					$("#cboxLoadedContent").height(300);
+				$.colorbox({innerWidth:"100%", initialWidth:"95%", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: true, fadeOut: 300, href:"#dupli_vote_popup", onComplete: function(){
 					$("#cboxContent").css("background","none");
+					$('#cboxWrapper').css('backgroundColor', "");
+					$('#cboxLoadedContent').css('backgroundColor', "");
+					$("#colorbox").width($("body").width());
+					$("#cboxWrapper").width($("body").width());
+				},
+				onClosed: function(){
+					$("#cboxContent").css("background","#fff");
 				}});
 			}else{
 				alert("접속자가 많아 참여가 지연되고 있습니다. 다시 참여해 주세요.");
@@ -519,8 +590,9 @@ function pop_search_nominee()
 		},
 		url: "./ajax_list.php",
 		success: function(response){
+			alert(response);
 			$.colorbox.close();
-			$(".sec_list").html(response);
+			$("#ajax_change").html(response);
 		}
 	});
 }
@@ -529,17 +601,23 @@ function go_vote(cidx)
 {
 	vote_idx	= cidx;
 
-	$.colorbox({innerWidth:"100%", initialWidth:"95%", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: true, fadeOut: 300, href:"#vote_input_popup", onComplete: function(){
+	$.colorbox({innerWidth:"100%", initialWidth:"95%", innerHeight:'100%', inline:true, opacity:"0", scrolling:false, closeButton:false, overlayClose: true, fadeOut: 300, href:"#vote_input_popup", onComplete: function(){
 		$("#cboxContent").css("background","none");
-		$('#cboxWrapper').css('backgroundColor', "");
-		$('#cboxLoadedContent').css('backgroundColor', "");
 		$("#colorbox").width($("body").width());
 		$("#cboxWrapper").width($("body").width());
 	},
+	onLoad:function() {
+		$('html, body').css('overflow', 'hidden'); // page scrollbars off
+	}, 
+	onComplete: function(){
+		var bg = "#f3f0f0";
+		$('#cboxWrapper').css('backgroundColor', bg);
+		$('#cboxLoadedContent').css('backgroundColor', bg);
+	},
 	onClosed: function(){
 		$("#cboxContent").css("background","#fff");
+		$('html, body').css('overflow', ''); // page scrollbars off
 	}});
-
 }
 
 function open_pop(param)
@@ -683,10 +761,17 @@ function back_input()
 
 function nominee_search()
 {
-	$.colorbox({width:"542px", height:"342px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#nominee_search_popup", onComplete: function(){
-		$("#cboxLoadedContent").height(300);
+	$.colorbox({innerWidth:"100%", initialWidth:"95%", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: true, fadeOut: 300, href:"#nominee_search_popup", onComplete: function(){
 		$("#cboxContent").css("background","none");
+		$('#cboxWrapper').css('backgroundColor', "");
+		$('#cboxLoadedContent').css('backgroundColor', "");
+		$("#colorbox").width($("body").width());
+		$("#cboxWrapper").width($("body").width());
+	},
+	onClosed: function(){
+		$("#cboxContent").css("background","#fff");
 	}});
+
 }
 
 function only_num(obj)

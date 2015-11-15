@@ -56,6 +56,63 @@
 </div>
 <!----------------- 후보 등록 개인정보 입력 팝업 ----------------->
 
+<!----------------- 후보 등록 개인정보 입력 팝업 ----------------->
+<div id="vote_input_popup" class="popup_wrap">
+  <div class="p_mid p_position big input">
+    <div class="block_close clearfix">
+      <a href="#" onclick="$.colorbox.close();return false;" class="btn_close"><img src="images/popup/btn_close.png" /></a>
+    </div>
+    <div class="block_content">
+      <div class="inner">
+        <div class="title title_input"><img src="images/popup/title_input.png" /></div>
+        <div class="block_input_bg">
+          <div class="block_input clearfix">
+            <div class="label"><img src="images/popup/label_name.png" /></div>
+            <div class="input_txt name">
+              <input type="text" name="vote_name" id="vote_name">
+            </div>
+          </div>
+          <div class="block_input clearfix">
+            <div class="label"><img src="images/popup/label_phone.png" /></div>
+            <div class="input_txt">
+              <div class="inner_phone clearfix">
+                <div class="in_phone">
+                  <select name="vote_phone1" id="vote_phone1">
+                    <option value="010">010</option>
+                    <option value="011">011</option>
+                    <option value="016">016</option>
+                    <option value="017">017</option>
+                    <option value="018">018</option>
+                    <option value="019">019</option>
+                  </select>
+                </div>
+                <div class="in_phone"><input type="text" id="vote_phone2" onkeyup="only_num(this);"></div>
+                <div class="in_phone"><input type="text" id="vote_phone3" onkeyup="only_num(this);"></div>
+              </div>
+            </div>
+          </div>
+          <div class="block_input clearfix">
+            <div class="input_txt notice">
+              <img src="images/popup/txt_notice_input.png" />
+            </div>
+          </div>
+          <div class="block_ckeck">
+            <div class="inner_check clearfix">
+              <div class="in_check"><img src="images/popup/check.png" width="22" name="vote_agree" id="vote_agree" onclick="vote_check()" /></div>
+              <div class="label_check" onclick="vote_check()">개인정보활용/개인정보취급/광고 약관동의</div>
+              <div class="btn_check"><a href="#" onclick="open_pop('agree_popup');return false;">자세히보기</a></div>
+            </div>
+          </div>
+        </div>    
+        <div class="block_btn">
+          <a href="#" onclick="ins_vote_info();return false;" class="common_1"><img src="images/popup/btn_input_ok.png" /></a>
+        </div>
+      </div><!--inner-->
+    </div>
+  </div>
+</div>
+<!----------------- 후보 등록 개인정보 입력 팝업 ----------------->
+
 <!----------------- 후보 등록 사진 or 유튜브영상 입력 팝업 ----------------->
 <div id="reg_pic_popup" class="popup_wrap">
   <div class="p_mid p_position big input">
@@ -176,6 +233,23 @@
 </div>
 <!----------------- 후보 등록 중복(5가지 모두 참여) 팝업 ----------------->
 
+<!----------------- 투표 중복 참여 팝업 ----------------->
+<div id="dupli_vote_popup" class="popup_wrap">
+  <div class="p_mid p_position aleardy">
+    <div class="block_close clearfix">
+      <a href="#" onclick="$.colorbox.close();return false;" class="btn_close"><img src="images/popup/btn_close.png" /></a>
+    </div>
+    <div class="block_content">
+      <div class="inner">
+        <div class="title title_input"><img src="images/popup/title_already_vote.png" /></div>   
+        <div class=" block_btn">
+          <a href="#" onclick="$.colorbox.close();change_tab('2');return false;" class="common_50"><img src="images/popup/btn_apply_go.png" /></a>
+        </div>  
+      </div><!--inner-->
+    </div>
+  </div>
+</div>
+<!----------------- 투표 중복 참여 팝업 ----------------->
 
 <!----------------- 후보 등록 완료 팝업 ----------------->
 <div id="nominee_comp_popup" class="popup_wrap">
@@ -215,14 +289,14 @@
 <div id="vote_comp_popup" class="popup_wrap">
   <div class="p_mid p_position big">
     <div class="block_close clearfix">
-      <a href="#" class="btn_close"><img src="images/popup/btn_close.png" /></a>
+      <a href="#" onclick="$.colorbox.close();return false;" class="btn_close"><img src="images/popup/btn_close.png" /></a>
     </div>
     <div class="block_content gift_comp">
       <div class="inner">
         <div class="title"><img src="images/popup/title_vote_comp.png" /></div>
         <div class="block_gift">
           <!--심사 100% 선물 2쿠폰-->
-          <img src="images/popup/gift_coupon.png" /> <!--3000원 쿠폰-->
+          <img src="images/popup/gift_coupon.png" id="vote_gift_image" /> <!--3000원 쿠폰-->
           <!--<img src="images/popup/gift_coupon_delivery.png" /> 무료배송쿠폰-->
           <!--쿠폰중복 외 중복당첨 불가 선물 3가지-->
           <!-- <img src="images/popup/gift_coupon_waterbox.png" /> 베이비워터 1박스 30명-->
@@ -230,10 +304,10 @@
           <!--<img src="images/popup/gift_coupon_skincare.png" /> 스킨케어세트 30명-->
         </div>
         <div class="btn_home">
-          <a href="#" target="_blank"><img src="images/popup/btn_home_gift.png" /></a>
+          <a href="http://www.babience.com/m/index.jsp" target="_blank"><img src="images/popup/btn_home_gift.png" /></a>
         </div>
         <div class="btn_block one">
-          <a href="#" class=""><img src="images/popup/btn_apply_go.png" /></a>
+          <a href="#" onclick="$.colorbox.close();change_tab('2');return false;" class=""><img src="images/popup/btn_apply_go.png" /></a>
         </div>
         <div class="block_sns">
           <a href="#" class="kt"><img src="images/popup/btn_share_kt.png" /></a>
@@ -247,6 +321,31 @@
   </div>
 </div>
 <!----------------- 투표 완료 팝업 ----------------->
+
+<!----------------- 후보자 검색 팝업 ----------------->
+<div id="nominee_search_popup" class="popup_wrap">
+  <div class="p_mid p_position aleardy">
+    <div class="block_close clearfix">
+      <a href="#" onclick="$.colorbox.close();return false;" class="btn_close"><img src="images/popup/btn_close.png" /></a>
+    </div>
+    <div class="block_content">
+      <div class="inner">
+        <div class="title title_input"><img src="images/popup/title_sear.png" /></div>   
+        <div class="sear_block">
+          <div class="inner_sear_block clearfix">
+            <div class="label"><img src="images/popup/label_name_sear.png" /></div>
+            <div class="input"><input type="text" id="search_baby_name"></div>
+          </div>
+        </div>
+        <div class=" block_btn">
+          <a href="#" onclick="pop_search_nominee();return false;" class="sear"><img src="images/popup/btn_sear.png" /></a>
+        </div>    
+      </div><!--inner-->
+    </div>
+  </div>
+</div>
+<!----------------- 후보자 검색 팝업 ----------------->
+
 
 <!----------------- 약관 팝업 ----------------->
 <div id="agree_popup" class="popup_wrap">
