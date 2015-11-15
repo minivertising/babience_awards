@@ -364,15 +364,42 @@ function ins_pic_info()
 			alert(response);
 			if (response	== "Y")
 			{
-				$.colorbox({width:"542px", height:"682px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#nominee_comp_popup", onComplete: function(){
-					$("#cboxLoadedContent").height(642);
+				$.colorbox({innerWidth:"100%", initialWidth:"95%", innerHeight:'100%', inline:true, opacity:"0", scrolling:false, closeButton:false, overlayClose: true, fadeOut: 300, href:"#nominee_comp_popup", onComplete: function(){
 					$("#cboxContent").css("background","none");
+					$("#colorbox").width($("body").width());
+					$("#cboxWrapper").width($("body").width());
+				},
+				onLoad:function() {
+					$('html, body').css('overflow', 'hidden'); // page scrollbars off
+				}, 
+				onComplete: function(){
+					var bg = "#f3f0f0";
+					$('#cboxWrapper').css('backgroundColor', bg);
+					$('#cboxLoadedContent').css('backgroundColor', bg);
+				},
+				onClosed: function(){
+					$("#cboxContent").css("background","#fff");
+					$('html, body').css('overflow', ''); // page scrollbars off
 				}});
+
 				$("#nominee_gift_image").attr("src","images/popup/gift_coupon_delivery.png");
 			}else if (response	== "Y1"){
-				$.colorbox({width:"542px", height:"682px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#nominee_comp_popup", onComplete: function(){
-					$("#cboxLoadedContent").height(642);
+				$.colorbox({innerWidth:"100%", initialWidth:"95%", innerHeight:'100%', inline:true, opacity:"0", scrolling:false, closeButton:false, overlayClose: true, fadeOut: 300, href:"#nominee_comp_popup", onComplete: function(){
 					$("#cboxContent").css("background","none");
+					$("#colorbox").width($("body").width());
+					$("#cboxWrapper").width($("body").width());
+				},
+				onLoad:function() {
+					$('html, body').css('overflow', 'hidden'); // page scrollbars off
+				}, 
+				onComplete: function(){
+					var bg = "#f3f0f0";
+					$('#cboxWrapper').css('backgroundColor', bg);
+					$('#cboxLoadedContent').css('backgroundColor', bg);
+				},
+				onClosed: function(){
+					$("#cboxContent").css("background","#fff");
+					$('html, body').css('overflow', ''); // page scrollbars off
 				}});
 				$("#nominee_gift_image").attr("src","images/popup/gift_coupon.png");
 			}else{
@@ -502,30 +529,43 @@ function go_vote(cidx)
 {
 	vote_idx	= cidx;
 
-	$.colorbox({width:"542px", height:"642px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#vote_input_popup", onComplete: function(){
-		$("#cboxLoadedContent").height(602);
+	$.colorbox({innerWidth:"100%", initialWidth:"95%", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: true, fadeOut: 300, href:"#vote_input_popup", onComplete: function(){
 		$("#cboxContent").css("background","none");
+		$('#cboxWrapper').css('backgroundColor', "");
+		$('#cboxLoadedContent').css('backgroundColor', "");
+		$("#colorbox").width($("body").width());
+		$("#cboxWrapper").width($("body").width());
+	},
+	onClosed: function(){
+		$("#cboxContent").css("background","#fff");
 	}});
-	
+
 }
 
 function open_pop(param)
 {
 	if (~param.indexOf("detail_pic_popup"))
 	{
-		$.colorbox({width:"692px", height:"592px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#"+param, onComplete: function(){
-			$("#cboxLoadedContent").height(550);
+		$.colorbox({innerWidth:"100%", initialWidth:"95%", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: true, fadeOut: 300, href:"#"+param, onComplete: function(){
 			$("#cboxContent").css("background","none");
+			$('#cboxWrapper').css('backgroundColor', "");
+			$('#cboxLoadedContent').css('backgroundColor', "");
+			$("#colorbox").width($("body").width());
+			$("#cboxWrapper").width($("body").width());
+		},
+		onClosed: function(){
+			$("#cboxContent").css("background","#fff");
 		}});
+
 	}else if (~param.indexOf("agree_popup")){
 		$.colorbox({innerWidth:"100%", initialWidth:"95%", innerHeight:"100%", inline:true, opacity:"0", scrolling:false, closeButton:false, overlayClose: true, fadeOut: 300, href:"#agree_popup", onComplete: function(){
 			$("#cboxContent").css("background","none");
 			$("#colorbox").width($("body").width());
 			$("#cboxWrapper").width($("body").width());
 		},
-onComplete : function() { 
-       $(this).colorbox.resize(); 
-  },
+		onComplete : function() { 
+			   $(this).colorbox.resize(); 
+		  },
 		onLoad:function() {
 			$('html, body').css('overflow', ''); // page scrollbars off
 		}, 
@@ -539,47 +579,47 @@ function sort_list(param)
 {
 	if (param == "all")
 	{
-		$("#sort_image0").attr("src","images/btn_vote_cate_all_on.png");
-		$("#sort_image1").attr("src","images/btn_vote_cate_1_off.png");
-		$("#sort_image2").attr("src","images/btn_vote_cate_2_off.png");
-		$("#sort_image3").attr("src","images/btn_vote_cate_3_off.png");
-		$("#sort_image4").attr("src","images/btn_vote_cate_4_off.png");
-		$("#sort_image5").attr("src","images/btn_vote_cate_5_off.png");
+		$("#sort_image0").attr("src","images/btn_sort_1_on.jpg");
+		$("#sort_image1").attr("src","images/btn_sort_2_off.jpg");
+		$("#sort_image2").attr("src","images/btn_sort_3_off.jpg");
+		$("#sort_image3").attr("src","images/btn_sort_4_off.jpg");
+		$("#sort_image4").attr("src","images/btn_sort_5_off.jpg");
+		$("#sort_image5").attr("src","images/btn_sort_6_off.jpg");
 	}else if (param == "1"){
-		$("#sort_image0").attr("src","images/btn_vote_cate_all_off.png");
-		$("#sort_image1").attr("src","images/btn_vote_cate_1_on.png");
-		$("#sort_image2").attr("src","images/btn_vote_cate_2_off.png");
-		$("#sort_image3").attr("src","images/btn_vote_cate_3_off.png");
-		$("#sort_image4").attr("src","images/btn_vote_cate_4_off.png");
-		$("#sort_image5").attr("src","images/btn_vote_cate_5_off.png");
+		$("#sort_image0").attr("src","images/btn_sort_1_off.jpg");
+		$("#sort_image1").attr("src","images/btn_sort_2_on.jpg");
+		$("#sort_image2").attr("src","images/btn_sort_3_off.jpg");
+		$("#sort_image3").attr("src","images/btn_sort_4_off.jpg");
+		$("#sort_image4").attr("src","images/btn_sort_5_off.jpg");
+		$("#sort_image5").attr("src","images/btn_sort_6_off.jpg");
 	}else if (param == "2"){
-		$("#sort_image0").attr("src","images/btn_vote_cate_all_off.png");
-		$("#sort_image1").attr("src","images/btn_vote_cate_1_off.png");
-		$("#sort_image2").attr("src","images/btn_vote_cate_2_on.png");
-		$("#sort_image3").attr("src","images/btn_vote_cate_3_off.png");
-		$("#sort_image4").attr("src","images/btn_vote_cate_4_off.png");
-		$("#sort_image5").attr("src","images/btn_vote_cate_5_off.png");
+		$("#sort_image0").attr("src","images/btn_sort_1_off.jpg");
+		$("#sort_image1").attr("src","images/btn_sort_2_off.jpg");
+		$("#sort_image2").attr("src","images/btn_sort_3_on.jpg");
+		$("#sort_image3").attr("src","images/btn_sort_4_off.jpg");
+		$("#sort_image4").attr("src","images/btn_sort_5_off.jpg");
+		$("#sort_image5").attr("src","images/btn_sort_6_off.jpg");
 	}else if (param == "3"){
-		$("#sort_image0").attr("src","images/btn_vote_cate_all_off.png");
-		$("#sort_image1").attr("src","images/btn_vote_cate_1_off.png");
-		$("#sort_image2").attr("src","images/btn_vote_cate_2_off.png");
-		$("#sort_image3").attr("src","images/btn_vote_cate_3_on.png");
-		$("#sort_image4").attr("src","images/btn_vote_cate_4_off.png");
-		$("#sort_image5").attr("src","images/btn_vote_cate_5_off.png");
+		$("#sort_image0").attr("src","images/btn_sort_1_off.jpg");
+		$("#sort_image1").attr("src","images/btn_sort_2_off.jpg");
+		$("#sort_image2").attr("src","images/btn_sort_3_off.jpg");
+		$("#sort_image3").attr("src","images/btn_sort_4_on.jpg");
+		$("#sort_image4").attr("src","images/btn_sort_5_off.jpg");
+		$("#sort_image5").attr("src","images/btn_sort_6_off.jpg");
 	}else if (param == "4"){
-		$("#sort_image0").attr("src","images/btn_vote_cate_all_off.png");
-		$("#sort_image1").attr("src","images/btn_vote_cate_1_off.png");
-		$("#sort_image2").attr("src","images/btn_vote_cate_2_off.png");
-		$("#sort_image3").attr("src","images/btn_vote_cate_3_off.png");
-		$("#sort_image4").attr("src","images/btn_vote_cate_4_on.png");
-		$("#sort_image5").attr("src","images/btn_vote_cate_5_off.png");
+		$("#sort_image0").attr("src","images/btn_sort_1_off.jpg");
+		$("#sort_image1").attr("src","images/btn_sort_2_off.jpg");
+		$("#sort_image2").attr("src","images/btn_sort_3_off.jpg");
+		$("#sort_image3").attr("src","images/btn_sort_4_off.jpg");
+		$("#sort_image4").attr("src","images/btn_sort_5_on.jpg");
+		$("#sort_image5").attr("src","images/btn_sort_6_off.jpg");
 	}else if (param == "5"){
-		$("#sort_image0").attr("src","images/btn_vote_cate_all_off.png");
-		$("#sort_image1").attr("src","images/btn_vote_cate_1_off.png");
-		$("#sort_image2").attr("src","images/btn_vote_cate_2_off.png");
-		$("#sort_image3").attr("src","images/btn_vote_cate_3_off.png");
-		$("#sort_image4").attr("src","images/btn_vote_cate_4_off.png");
-		$("#sort_image5").attr("src","images/btn_vote_cate_5_on.png");
+		$("#sort_image0").attr("src","images/btn_sort_1_off.jpg");
+		$("#sort_image1").attr("src","images/btn_sort_2_off.jpg");
+		$("#sort_image2").attr("src","images/btn_sort_3_off.jpg");
+		$("#sort_image3").attr("src","images/btn_sort_4_off.jpg");
+		$("#sort_image4").attr("src","images/btn_sort_5_off.jpg");
+		$("#sort_image5").attr("src","images/btn_sort_6_on.jpg");
 	}
 	vote_sort	= param;
 
@@ -621,13 +661,6 @@ function vote_check()
 
 function back_input()
 {
-	/*
-	$.colorbox({width:"542px", height:"542px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#reg_input_popup", onComplete: function(){
-		$("#cboxLoadedContent").height(500);
-		$("#cboxContent").css("background","none");
-	}});
-	*/
-
 	$.colorbox({innerWidth:"100%", initialWidth:"95%", innerHeight:'100%', inline:true, opacity:"0", scrolling:false, closeButton:false, overlayClose: true, fadeOut: 300, href:"#reg_input_popup", onComplete: function(){
 		$("#cboxContent").css("background","none");
 		$("#colorbox").width($("body").width());

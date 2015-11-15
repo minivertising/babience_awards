@@ -54,48 +54,113 @@
 </div>
 <div class="sec_sorting change_tab"  id="vote_contents2" style="display:none">
   <div class="inner_sort clearfix">
-    <a href="#" class="sort_1"><img src="images/btn_sort_1_on.jpg" alt=""/></a>
-    <a href="#" class="sort_2"><img src="images/btn_sort_2_off.jpg" alt=""/></a>
-    <a href="#" class="sort_3"><img src="images/btn_sort_3_off.jpg" alt=""/></a>
+    <a href="#" class="sort_1" onclick="sort_list('all');return false;"><img src="images/btn_sort_1_on.jpg" alt="" id="sort_image0"/></a>
+    <a href="#" class="sort_2" onclick="sort_list('1');return false;"><img src="images/btn_sort_2_off.jpg" alt="" id="sort_image1"/></a>
+    <a href="#" class="sort_3" onclick="sort_list('2');return false;"><img src="images/btn_sort_3_off.jpg" alt="" id="sort_image2"/></a>
   </div>
   <div class="inner_sort clearfix second">
-    <a href="#" class="sort_1"><img src="images/btn_sort_4_off.jpg" alt=""/></a>
-    <a href="#" class="sort_2"><img src="images/btn_sort_5_off.jpg" alt=""/></a>
-    <a href="#" class="sort_3"><img src="images/btn_sort_6_off.jpg" alt=""/></a>
+    <a href="#" class="sort_1" onclick="sort_list('3');return false;"><img src="images/btn_sort_4_off.jpg" alt="" id="sort_image3"/></a>
+    <a href="#" class="sort_2" onclick="sort_list('4');return false;"><img src="images/btn_sort_5_off.jpg" alt="" id="sort_image4"/></a>
+    <a href="#" class="sort_3" onclick="sort_list('5');return false;"><img src="images/btn_sort_6_off.jpg" alt="" id="sort_image5"/></a>
   </div>
 </div>
+<div id="ajax_change">
 <div class="sec_vote_list change_tab"  id="vote_contents3" style="display:none">
-  <div class="inner clearfix"> 
-    <!--one-->
+  <div class="inner clearfix">
+<?
+	if(isset($pg) == false) $pg = 1;	// $pg가 없으면 1로 생성
+	$page_size = 4;	// 한 페이지에 나타날 개수
+	$block_size = 5;	// 한 화면에 나타낼 페이지 번호 개수
+
+	$nominees_count_query = "SELECT count(*) FROM ".$_gl['member_info_table']." WHERE mb_upload_url is not null";
+
+	list($nominees_count) = @mysqli_fetch_array(mysqli_query($my_db, $nominees_count_query));
+	$PAGE_CLASS = new Page($pg,$nominees_count,$page_size,$block_size);
+
+	$BLOCK_LIST = $PAGE_CLASS->blockList6();
+	$PAGE_UNCOUNT = $PAGE_CLASS->page_uncount;
+
+	$nominees_query		= "SELECT * FROM ".$_gl['member_info_table']." WHERE mb_upload_url is not null LIMIT $PAGE_CLASS->page_start, $page_size";
+	$nominees_result		= mysqli_query($my_db, $nominees_query);
+	
+	while ($nominees_data = mysqli_fetch_array($nominees_result))
+	{
+?>
     <div class="one">
       <div class="thumb">
-        <a href="#"><img src="images/test_thumb.jpg" alt=""/></a>
+        <a href="#" onclick="open_pop('detail_pic_popup<?=$nominees_data['idx']?>');return false;"><img src="<?=$nominees_data['mb_thumb_url']?>"></a>
       </div>
       <div class="info_txt">
         <div class="inner_info_txt clearfix">
-	      <div class="num">
+          <div class="num">
             <div class="inner_num">
               <div class="icon"><img src="images/icon_h.png" alt=""/></div>
-              <div class="n">1,234</div>
+              <div class="n"><?=number_format($nominees_data['mb_vote'])?></div>
             </div>
           </div>
-    	  <div class="btn"><a href="#"><img src="images/btn_vote_sub.jpg" alt=""/></a></div>
+          <div class="btn"><a href="#" onclick="go_vote('<?=$nominees_data['idx']?>');return false;"><img src="images/btn_vote_sub.jpg" alt=""/></a></div>
         </div>
       </div>
-    </div> 
-    <!--one-->   
+    </div>
+
+<div style="display:none;">
+<!----------------- 후보 등록 사진 or 유튜브영상 자세히보기 팝업 ----------------->
+<div id="detail_pic_popup<?=$nominees_data['idx']?>" class="popup_wrap">
+  <div class="p_mid p_position pic">
+    <div class="block_close clearfix">
+      <a href="#" onclick="$.colorbox.close();return false;" class="btn_close"><img src="images/popup/btn_close.png" /></a>
+    </div>
+    <div class="block_content view_pic">
+      <div class="inner">
+        <div class="title"><img src="images/popup/title_cate_<?=$nominees_data['mb_sel_nominees']?>.png" /></div>
+        <div class="img_pic">
+<?
+	if ($nominees_data['mb_upload_flag'] == "P")
+	{
+?>
+                        <div class="pic"><img src="<?=$nominees_data['mb_upload_url']?>"></div>
+<?
+	}else{
+?>
+                        <div class="pic"><iframe allowfullscreen src="<?=$nominees_data['mb_upload_url']?>" frameborder="0"></iframe></div>
+<?
+	}
+?>
+
+          <!-- <div class="pic">사진 or 영상영역</div> -->
+          <div class="info">
+            <div class="inner_info clearfix">
+              <div class="name"><?=$nominees_data['mb_baby_name']?> 후보</div>
+              <div class="num"><?=$nominees_data['mb_vote']?></div>
+            </div>
+          </div>
+        </div>
+        <div class="btn_block">
+          <a href="#" onclick="go_vote('<?=$nominees_data['idx']?>');return false;" class="common_45"><img src="images/popup/btn_vote_this.png" /></a>
+        </div>
+      </div><!--inner-->
+    </div>
+  </div>
+</div>
+<!----------------- 후보 등록 사진 or 유튜브영상 자세히보기 팝업 ----------------->
+</div>
+<?
+	}
+?>
+
   </div>
 </div>
 <!--5페이지씩 페이지네이션 노출--->
 <div class="sec_pagination change_tab"  id="vote_contents4" style="display:none">
   <div class="inner clearfix">
-    <a href="#" class="arrow"><img src="images/arrow_left.png" width="24" alt=""/></a>
+    <div class="pageing"><?php echo $BLOCK_LIST?></div>
+    <!-- <a href="#" class="arrow"><img src="images/arrow_left.png" width="24" alt=""/></a>
     <a href="#" class="cnt selected"> 1 </a>
     <a href="#" class="cnt"> 2 </a>
     <a href="#" class="cnt"> 3 </a>
     <a href="#" class="cnt"> 4 </a>
     <a href="#" class="cnt"> 5 </a>
-    <a href="#" class="arrow"><img src="images/arrow_right.png" width="24" alt=""/></a>
+    <a href="#" class="arrow"><img src="images/arrow_right.png" width="24" alt=""/></a> -->
   </div>
 </div>
 <div class="btn_also_apply change_tab"  id="vote_contents5" style="display:none">
@@ -104,7 +169,7 @@
 <div class="sec_vote_gift change_tab"  id="vote_contents6" style="display:none">
   <div class="bg"><img src="images/bg_vote_gift.jpg" alt=""/></div>
 </div>
-
+</div>
     <!------------------ 나의선물확인 탭 ------------------>
 <div class="sec_gift_title change_tab" id="mygift_contents" style="display:none;">
   <div class="bg"><img src="images/title_gift.jpg" alt=""/></div>
@@ -197,7 +262,7 @@ function pageRun(num)
 		},
 		url: "./ajax_list.php",
 		success: function(response){
-			$(".sec_list").html(response);
+			$("#ajax_change").html(response);
 		}
 	});
 }

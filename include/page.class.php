@@ -258,5 +258,59 @@ class Page
 		return $block_str;
 	}
 
+	function blockList6( $str = "pageRun(")
+	{
+		$b_start = $this->block_start;
+		$block_str = "";
+
+/*
+    <a href="#" class="arrow"><img src="images/arrow_left.png" width="24" alt=""/></a>
+    <a href="#" class="cnt selected"> 1 </a>
+    <a href="#" class="cnt"> 2 </a>
+    <a href="#" class="cnt"> 3 </a>
+    <a href="#" class="cnt"> 4 </a>
+    <a href="#" class="cnt"> 5 </a>
+    <a href="#" class="arrow"><img src="images/arrow_right.png" width="24" alt=""/></a>
+*/
+		$block_str .= '';
+		//-- 이전 블럭
+		if($this->block != 1)
+		{
+			$temp = $this->block_start - 1;
+			$block_str .= '<a href="#" onclick="' . $str . $temp . ');return false;" class="arrow"><img src="images/arrow_left.png" width="24" alt=""/></a>';
+		}
+
+		//--블럭 리스트
+		$arrBlock = array();
+		while($b_start <= $this->block_end && $b_start <= $this->page_count )
+		{
+			$arrBlock[] = 	$b_start++;
+		}
+		
+		for($i = 0; $i < count($arrBlock); $i++)
+		{
+			if($this->pg != $arrBlock[$i])
+			{
+				$block_str .= '<a href="#" class="cnt" onclick="'. $str.$arrBlock[$i] . ');return false;">' . $arrBlock[$i] . '</a>';
+			}
+			else
+			{
+				$block_str .= '<a href="#" class="cnt selected" onclick="'. $str.$arrBlock[$i] . ');return false;">' . $arrBlock[$i] . '</a>';
+			}
+			//if($i < (count($arrBlock) - 1) ) $block_str .= " / ";
+		}
+		
+		//다음 블럭
+		if($this->block != $this->block_count && $this->tot_no != 0){
+			$temp = $this->block_end + 1;
+			$block_str .= '<a href="#" onclick="' .$str . $temp . ');return false;" class="arrow"><img src="images/arrow_right.png" width="24" alt=""/></a>';
+
+			
+		}
+
+		$block_str .= '';
+		return $block_str;
+	}
+
 }
 ?>

@@ -29,8 +29,8 @@
                     <option value="019">019</option>
                   </select>
                 </div>
-                <div class="in_phone"><input type="text" id="mb_phone2"></div>
-                <div class="in_phone"><input type="text" id="mb_phone3"></div>
+                <div class="in_phone"><input type="text" id="mb_phone2" onkeyup="only_num(this);"></div>
+                <div class="in_phone"><input type="text" id="mb_phone3" onkeyup="only_num(this);"></div>
               </div>
             </div>
           </div>
