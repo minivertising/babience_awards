@@ -13,13 +13,13 @@
 	if($gubun == "MOBILE")
 	{
 		//if ($testurl == "imsi")
-			Header("Location:http://www.belif-trip.com/MOBILE/index.php");
+			Header("Location:http://award.babience-event.com/MOBILE/index.php");
 		//else
 		//	Header("Location:https://www.facebook.com/173760885976143/posts/1146150778737144");
 		exit;
 	}else{
 		//if ($testurl == "imsi")
-			Header("Location:http://www.belif-trip.com/PC/index.php");
+			Header("Location:http://award.babience-event.com/PC/index.php");
 		//else
 		//	Header("Location:https://www.facebook.com/173760885976143/posts/1146150778737144");
 		exit;

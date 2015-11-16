@@ -1,183 +1,3 @@
-<<<<<<< HEAD
-var chk_ins = 0;
-function input_info()
-{
-	var mb_name			= $("#mb_name").val();
-	var mb_phone			= $("#mb_phone").val();
-	var sel_movie			= $("#movie_num").val();
-	var use_agree			= $("#usechk").val();
-	var privacy_agree		= $("#privacychk").val();
-	var adver_agree		= $("#adverchk").val();
-
-	if (mb_name == "" || mb_name == "성함을 입력해 주세요.")
-	{
-
-		alert('이름을 입력해 주세요.');
-
-		$("#mb_name").focus();
-		chk_ins = 0;
-		return false;
-	}
-
-	if (mb_phone == "" || mb_phone == "휴대폰 번호를 입력해 주세요.(숫자만)")
-	{
-
-		alert('전화번호를 입력해 주세요.');
-
-		$("#mb_phone").focus();
-		chk_ins = 0;
-		return false;
-	}
-
-	if (use_agree == "N")
-	{
-		alert("개인정보 이용 약관에 동의를 안 하셨습니다");
-		chk_ins = 0;
-		return false;
-	}
-
-/*
-	if (privacy_agree == "N")
-	{
-		alert("개인정보 취급 위탁 동의를 안 하셨습니다");
-		chk_ins = 0;
-		return false;
-	}
-
-	if (adver_agree == "N")
-	{
-		alert("광고성 정보전송 약관에 동의를 안 하셨습니다");
-		chk_ins = 0;
-		return false;
-	}
-*/
-/*
-	if ($('#use_agree').is(":checked") == false)
-	{
-		alert("개인정보 활용 동의를 안 하셨습니다");
-		chk_ins = 0;
-		return false;
-	}
-
-	if ($('#privacy_agree').is(":checked") == false)
-	{
-		alert("개인정보 취급 위탁 동의를 안 하셨습니다");
-		chk_ins = 0;
-		return false;
-	}
-
-	if ($('#adver_agree').is(":checked") == false)
-	{
-		alert("광고 동의 약관에 동의를 안 하셨습니다");
-		chk_ins = 0;
-		return false;
-	}
-*/
-
-	$.ajax({
-		type:"POST",
-		data:{
-			"exec"					: "insert_info",
-			"mb_name"			: mb_name,
-			"mb_phone"			: mb_phone,
-			"sel_movie"			: sel_movie
-		},
-		url: "../main_exec.php",
-		success: function(response){
-			$.colorbox({width:"542px", height:"742px", inline:true, opacity:"0.9", closeButton:false, href:"#thanks_popup"});
-		}
-	});
-
-}
-
-function show_gift()
-{
-	$("#gift_link").colorbox({width:"712px", height:"652px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: true, fadeOut: 300, href:"#gift_popup", onComplete: function(){
-		$("#cboxLoadedContent").height(610);
-		$("#cboxContent").css("background","none");
-
-	},
-	onClosed: function(){
-		$("#cboxContent").css("background","#fff");
-	}});
-
-}
-function show_gift2()
-{
-	$.colorbox({width:"712px", height:"652px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: true, fadeOut: 300, href:"#gift_popup", onComplete: function(){
-		$("#cboxLoadedContent").height(610);
-		$("#cboxContent").css("background","none");
-	},
-	onClosed: function(){
-		$("#cboxContent").css("background","#fff");
-	}});
-}
-
-function show_join()
-{
-	$.colorbox({width:"592px", height:"522px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: true, fadeOut: 300, href:"#join_popup", onComplete: function(){
-		$("#cboxLoadedContent").height(480);
-		$("#cboxContent").css("background","none");
-	},
-	onClosed: function(){
-		$("#cboxContent").css("background","#fff");
-	}});
-}
-
-function show_notice()
-{
-	$.colorbox({width:"492px", height:"567px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: true, fadeOut: 300, href:"#notice_popup", onComplete: function(){
-		$("#cboxLoadedContent").height(526);
-		$("#cboxContent").css("background","none");
-	},
-	onClosed: function(){
-		$("#cboxContent").css("background","#fff");
-	}});
-}
-
-function back_input()
-{
-	$.colorbox({width:"492px", height:"632px", inline:true, opacity:"0.9", closeButton:false, href:"#insert_popup", onComplete:function(){
-		$("#cboxLoadedContent").height(592);
-		$("#cboxContent").css("background","none");
-	},
-	onClosed: function(){
-		$("#cboxContent").css("background","#fff");
-	}});
-}
-
-function show_use_agree()
-{
-	$.colorbox({width:"492px", height:"566px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: true, fadeOut: 300, href:"#use_agree_popup", onComplete: function(){
-		$("#cboxLoadedContent").height(526);
-		$("#cboxContent").css("background","none");
-	}});
-}
-
-function show_privacy_agree()
-{
-	$.colorbox({width:"492px", height:"566px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: true, fadeOut: 300, href:"#privacy_agree_popup", onComplete: function(){
-		$("#cboxLoadedContent").height(526);
-		$("#cboxContent").css("background","none");
-	}});
-}
-
-function show_adver_agree()
-{
-	$.colorbox({width:"492px", height:"566px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: true, fadeOut: 300, href:"#adver_agree_popup", onComplete: function(){
-		$("#cboxLoadedContent").height(526);
-		$("#cboxContent").css("background","none");
-	}});
-}
-
-function show_confirm()
-{
-	$.colorbox({width:"452px", height:"312px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: true, fadeOut: 300, href:"#confirm_popup", onComplete: function(){
-		$("#cboxLoadedContent").height(526);
-		$("#cboxContent").css("background","none");
-	}});
-}
-=======
 function change_tab(param)
 {
 	if (param == "1")
@@ -224,10 +44,15 @@ function reg_nominee(param)
 		sel_nominee	= "3";
 	}else if (param == "4"){
 		sel_nominee	= "4";
+	}else if (param == "5"){
+		sel_nominee	= "5";
 	}
-	$.colorbox({width:"542px", height:"342px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#reg_input_popup", onComplete: function(){
-		$("#cboxLoadedContent").height(302);
+	$.colorbox({width:"542px", height:"542px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#reg_input_popup", onComplete: function(){
+		$("#cboxLoadedContent").height(500);
 		$("#cboxContent").css("background","none");
+	},
+	onClosed: function(){
+		del_info();
 	}});
 
 }
@@ -235,9 +60,11 @@ function reg_nominee(param)
 function ins_info()
 {
 	var mb_name		= $("#mb_name").val();
-	var mb_phone		= $("#mb_phone").val();
+	var mb_phone1		= $("#mb_phone1").val();
+	var mb_phone2		= $("#mb_phone2").val();
+	var mb_phone3		= $("#mb_phone3").val();
+	var mb_phone		= mb_phone1 + mb_phone2 + mb_phone3;
 
-/*
 	if (mb_name == "")
 	{
 		alert('이름을 입력해 주세요.');
@@ -245,21 +72,36 @@ function ins_info()
 		//chk_ins = 0;
 		return false;
 	}
-*/
-	if (mb_phone == "")
+
+	if (mb_phone2 == "")
 	{
 		alert('전화번호를 입력해 주세요.');
-		$("#mb_phone").focus();
+		$("#mb_phone2").focus();
 		//chk_ins = 0;
 		return false;
 	}
 
+	if (mb_phone3 == "")
+	{
+		alert('전화번호를 입력해 주세요.');
+		$("#mb_phone3").focus();
+		//chk_ins = 0;
+		return false;
+	}
+
+	if (chk_mb_flag == 0)
+	{
+		alert("개인정보 취급 동의/광고동의를 안 하셨습니다");
+		//chk_ins = 0;
+		return false;
+	}
+/*
 	if ($('#mb_agree').is(":checked") == false)
 	{
 		alert("약관에 동의를 안 하셨습니다");
 		return false;
 	}
-
+*/
 	$.ajax({
 		type:"POST",
 		data:{
@@ -276,9 +118,34 @@ function ins_info()
 				$.colorbox({width:"542px", height:"642px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#reg_pic_popup", onComplete: function(){
 					$("#cboxLoadedContent").height(602);
 					$("#cboxContent").css("background","none");
+				},
+				onClosed: function(){
+					del_info();
+				}});
+			}else if (response == "Y1"){
+				$.colorbox({width:"542px", height:"642px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#reg_pic_popup", onComplete: function(){
+					$("#cboxLoadedContent").height(602);
+					$("#cboxContent").css("background","none");
+				},
+				onClosed: function(){
+					del_info();
 				}});
 			}else if (response == "D"){
-				alert("해당 카테고리에는 이미 참여하셨습니다. 다른 카테고리에 참여해 주세요.");
+				$.colorbox({width:"542px", height:"342px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#dupli_nominee_popup", onComplete: function(){
+					$("#cboxLoadedContent").height(300);
+					$("#cboxContent").css("background","none");
+				},
+				onClosed: function(){
+					del_info();
+				}});
+			}else if (response == "AD"){
+				$.colorbox({width:"542px", height:"342px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#all_dupli_nominee_popup", onComplete: function(){
+					$("#cboxLoadedContent").height(300);
+					$("#cboxContent").css("background","none");
+				},
+				onClosed: function(){
+					del_info();
+				}});
 			}else{
 				alert("접속자가 많아 참여가 지연되고 있습니다. 다시 참여해 주세요.");
 			}
@@ -348,8 +215,9 @@ $(function () {
         data.context = $('<div/>').appendTo('#files');
         $.each(data.files, function (index, file) {
 			img_name = file.name;
-            var node = $('<p/>')
-                    .append($('<span/>').text(file.name));
+            var node = $('<p/>');
+                   // .append($('<span/>').text(file.name));
+			  $("#image_up_name").val(file.name);
             if (!index) {
                 //node
                   //  .append('<br>')
@@ -444,18 +312,28 @@ function ins_pic_info()
 		},
 		url: "../main_exec.php",
 		success: function(response){
-			alert(response);
-			/*
 			if (response	== "Y")
 			{
-				$.colorbox({width:"542px", height:"642px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#reg_pic_popup", onComplete: function(){
-					$("#cboxLoadedContent").height(602);
+				$.colorbox({width:"542px", height:"682px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#nominee_comp_popup", onComplete: function(){
+					$("#cboxLoadedContent").height(642);
 					$("#cboxContent").css("background","none");
+				},
+				onClosed: function(){
+					del_info();
 				}});
+				$("#nominee_gift_image").attr("src","images/popup/gift_coupon_delivery.png");
+			}else if (response	== "Y1"){
+				$.colorbox({width:"542px", height:"682px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#nominee_comp_popup", onComplete: function(){
+					$("#cboxLoadedContent").height(642);
+					$("#cboxContent").css("background","none");
+				},
+				onClosed: function(){
+					del_info();
+				}});
+				$("#nominee_gift_image").attr("src","images/popup/gift_coupon.png");
 			}else{
 				alert("접속자가 많아 참여가 지연되고 있습니다. 다시 참여해 주세요.");
 			}
-			*/
 		}
 	});
 }
@@ -493,9 +371,10 @@ function ins_vote_info()
 		return false;
 	}
 
-	if ($('#vote_agree').is(":checked") == false)
+	if (chk_vote_flag == 0)
 	{
-		alert("약관에 동의를 안 하셨습니다");
+		alert("개인정보 취급 동의/광고동의를 안 하셨습니다");
+		//chk_ins = 0;
 		return false;
 	}
 
@@ -509,16 +388,86 @@ function ins_vote_info()
 		},
 		url: "../main_exec.php",
 		success: function(response){
+			var resArray	= response.split("||");
+			//event_gift	= resArray[1];
+
 			alert(response);
-			if (response == "Y")
+			if (resArray[1] == "DELIVERY")
 			{
-				alert("투표가 완료 되었습니다.");
-				location.reload();
-			}else if (response == "D"){
-				alert("투표는 하루에 한번만 참여 가능합니다.");
+				$.colorbox({width:"542px", height:"682px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#vote_comp_popup", onComplete: function(){
+					$("#cboxLoadedContent").height(642);
+					$("#cboxContent").css("background","none");
+				},
+				onClosed: function(){
+					del_info();
+				}});
+				$("#vote_gift_image").attr("src","images/popup/gift_coupon_delivery.png");
+			}else if (resArray[1] == "DISCOUNT"){
+				$.colorbox({width:"542px", height:"682px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#vote_comp_popup", onComplete: function(){
+					$("#cboxLoadedContent").height(642);
+					$("#cboxContent").css("background","none");
+				},
+				onClosed: function(){
+					del_info();
+				}});
+				$("#vote_gift_image").attr("src","images/popup/gift_coupon.png");
+			}else if (resArray[1] == "WATER"){
+				$.colorbox({width:"542px", height:"682px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#vote_comp_popup", onComplete: function(){
+					$("#cboxLoadedContent").height(642);
+					$("#cboxContent").css("background","none");
+				},
+				onClosed: function(){
+					del_info();
+				}});
+				$("#vote_gift_image").attr("src","images/popup/gift_coupon_waterbox.png");
+			}else if (resArray[1] == "SKIN"){
+				$.colorbox({width:"542px", height:"682px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#vote_comp_popup", onComplete: function(){
+					$("#cboxLoadedContent").height(642);
+					$("#cboxContent").css("background","none");
+				},
+				onClosed: function(){
+					del_info();
+				}});
+				$("#vote_gift_image").attr("src","images/popup/gift_coupon_skincare.png");
+			}else if (resArray[1] == "CLEAN"){
+				$.colorbox({width:"542px", height:"682px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#vote_comp_popup", onComplete: function(){
+					$("#cboxLoadedContent").height(642);
+					$("#cboxContent").css("background","none");
+				},
+				onClosed: function(){
+					del_info();
+				}});
+				$("#vote_gift_image").attr("src","images/popup/gift_coupon_fabric.png");
+			}else if (resArray[1] == "no"){
+				$.colorbox({width:"542px", height:"342px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#dupli_vote_popup", onComplete: function(){
+					$("#cboxLoadedContent").height(300);
+					$("#cboxContent").css("background","none");
+				},
+				onClosed: function(){
+					del_info();
+				}});
 			}else{
 				alert("접속자가 많아 참여가 지연되고 있습니다. 다시 참여해 주세요.");
 			}
+		}
+	});
+}
+
+function pop_search_nominee()
+{
+	var search_baby_name	= $("#search_baby_name").val();
+	var vote_param				= "all";
+
+	$.ajax({
+		type:"POST",
+		data:{
+			"vote_param"			: vote_param,
+			"search_baby_name"	: search_baby_name
+		},
+		url: "./ajax_list.php",
+		success: function(response){
+			$.colorbox.close();
+			$(".sec_list").html(response);
 		}
 	});
 }
@@ -530,6 +479,9 @@ function go_vote(cidx)
 	$.colorbox({width:"542px", height:"642px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#vote_input_popup", onComplete: function(){
 		$("#cboxLoadedContent").height(602);
 		$("#cboxContent").css("background","none");
+	},
+	onClosed: function(){
+		del_info();
 	}});
 	
 }
@@ -538,14 +490,20 @@ function open_pop(param)
 {
 	if (~param.indexOf("detail_pic_popup"))
 	{
-		$.colorbox({width:"642px", height:"547px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#"+param, onComplete: function(){
-			$("#cboxLoadedContent").height(505);
+		$.colorbox({width:"692px", height:"592px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#"+param, onComplete: function(){
+			$("#cboxLoadedContent").height(550);
 			$("#cboxContent").css("background","none");
+		},
+		onClosed: function(){
+			del_info();
 		}});
 	}else if (~param.indexOf("agree_popup")){
 		$.colorbox({width:"442px", height:"522px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: true, fadeOut: 300, href:"#agree_popup", onComplete: function(){
 			$("#cboxLoadedContent").height(480);
 			$("#cboxContent").css("background","none");
+		},
+		onClosed: function(){
+			del_info();
 		}});
 	}
 }
@@ -610,4 +568,113 @@ function sort_list(param)
 	});
 }
 
->>>>>>> 8d9c6cf3a86641a59116f09b7a7fc46bab372735
+function mb_check()
+{
+	if (chk_mb_flag == 0)
+	{
+		$("#mb_agree").attr("src","images/popup/checked.png");
+		chk_mb_flag = 1;
+	}else{
+		$("#mb_agree").attr("src","images/popup/check.png");
+		chk_mb_flag = 0;
+	}
+}
+
+function vote_check()
+{
+	if (chk_vote_flag == 0)
+	{
+		$("#vote_agree").attr("src","images/popup/checked.png");
+		chk_vote_flag = 1;
+	}else{
+		$("#vote_agree").attr("src","images/popup/check.png");
+		chk_vote_flag = 0;
+	}
+}
+
+function back_input()
+{
+	$.colorbox({width:"542px", height:"542px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#reg_input_popup", onComplete: function(){
+		$("#cboxLoadedContent").height(500);
+		$("#cboxContent").css("background","none");
+	},
+	onClosed: function(){
+		del_info();
+	}});
+}
+
+function nominee_search()
+{
+	$.colorbox({width:"542px", height:"342px", inline:true, opacity:"0.9", scrolling:false, closeButton:false, overlayClose: false, fadeOut: 300, href:"#nominee_search_popup", onComplete: function(){
+		$("#cboxLoadedContent").height(300);
+		$("#cboxContent").css("background","none");
+	},
+	onClosed: function(){
+		del_info();
+	}});
+}
+
+function only_num(obj)
+{
+	var inText = obj.value;
+	var outText = "";
+	var flag = true;
+	var ret;
+	for(var i = 0; i < inText.length; i++)
+	{
+		ret = inText.charCodeAt(i);
+		if((ret < 48) || (ret > 57))
+		{
+			flag = false;
+		}
+		else
+		{
+			outText += inText.charAt(i);
+		}
+	}
+ 
+	if(flag == false)
+	{
+		alert("전화번호는 숫자입력만 가능합니다.");
+		obj.value = outText;
+		obj.focus();
+		return false;
+	} 
+	return true;
+}
+
+function tab_upload_use(param)
+{
+	if (param == "pic")
+	{
+		$("#tab_upload_image1").attr("src","images/popup/btn_upload_pic_on.png");
+		$("#tab_upload_image2").attr("src","images/popup/btn_upload_movie_off.png");
+		$("#mov_input_area").hide();
+		$("#pic_input_area").show();
+	}else{
+		$("#tab_upload_image1").attr("src","images/popup/btn_upload_pic_off.png");
+		$("#tab_upload_image2").attr("src","images/popup/btn_upload_movie_on.png");
+		$("#pic_input_area").hide();
+		$("#mov_input_area").show();
+	}
+}
+
+function del_info()
+{
+	$("#mb_name").val("");
+	$("#mb_phone1").val("010");
+	$("#mb_phone2").val("");
+	$("#mb_phone3").val("");
+	$("#mb_agree").attr("src","images/popup/check.png");
+	chk_mb_flag = 0;
+	$("#vote_name").val("");
+	$("#vote_phone1").val("010");
+	$("#vote_phone2").val("");
+	$("#vote_phone3").val("");
+	$("#vote_agree").attr("src","images/popup/check.png");
+	chk_vote_flag = 0;
+	$("#mb_baby_name").val("");
+	$("#image_up_name").val("");
+	$("#files").html('<img src="images/popup/pre_img.jpg" />');
+	$("#search_baby_name").val("");
+}

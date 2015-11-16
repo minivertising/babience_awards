@@ -1,63 +1,5 @@
-<<<<<<< HEAD
 <?
 	include_once   "./header.php";
-?>
-<body>
-  <div>
-    <a href="./nominee_main.php">후보 지원하기</a>
-    <a href="./vote_main.php">투표하기</a>
-  <div>
-  <div>
-    <a href="#" onmouseover="change_tab('1');">혜택 안내</a>
-    <a href="#" onmouseover="change_tab('2');">참여 방법</a>
-    <a href="#" onmouseover="change_tab('3');">오프라인 시상식</a>
-    <a href="#" onmouseover="change_tab('4');">나의 선물 확인</a>
-    <div id="benefit_contents" class="tab_contents" style="background:skyblue">
-      후보지원혜택 내용
-      Blah~Blah~Blah~Blah~Blah~
-    </div>
-    <div id="join_contents" class="tab_contents" style="display:none;background:gray">
-      참여방법 내용
-      Blah~Blah~Blah~Blah~Blah~
-    </div>
-    <div id="awards_contents" class="tab_contents" style="display:none;background:pink">
-      오프라인 시상식 내용
-      Blah~Blah~Blah~Blah~Blah~
-    </div>
-    <div id="mygift_contents" class="tab_contents" style="display:none;background:green">
-      나의 선물확인 내용
-      Blah~Blah~Blah~Blah~Blah~
-    </div>
-  <div>
-  <div>
-    <a href="#">스토리 공유</a>
-    <a href="#">페이스북 공유</a>
-    <a href="#">트위터 공유</a>
-  </div>
-</body>
-</html>
-<script type="text/javascript">
-function change_tab(param)
-{
-	if (param == "1")
-	{
-		$(".tab_contents").hide();
-		$("#benefit_contents").show();
-	}else if (param == "2"){
-		$(".tab_contents").hide();
-		$("#join_contents").show();
-	}else if (param == "3"){
-		$(".tab_contents").hide();
-		$("#awards_contents").show();
-	}else if (param == "4"){
-		$(".tab_contents").hide();
-		$("#mygift_contents").show();
-	}
-}
-=======
-<?
-	include_once   "./header.php";
-
 ?>
 <body class="main">
   <div class="sec_right_navi">
@@ -126,7 +68,7 @@ function change_tab(param)
           <img src="images/sub_title_vote.png" alt=""/>
         </div>
         <div class="sear_baby">
-          <a href="#"><img src="images/btn_sear_baby_off.png" alt=""/></a>
+          <a href="#" onclick="nominee_search();return false;"><img src="images/btn_sear_baby_off.png" alt=""/></a>
         </div>
         <div class="sec_sorting">
           <div class="inner_sorting clearfix">
@@ -161,7 +103,7 @@ function change_tab(param)
 ?>
             <div class="block_one">
               <div class="img_thumb">
-                <a href="#" onclick="open_pop('detail_pic_popup<?=$nominees_data['idx']?>');return false;"><img src="<?=$nominees_data['mb_thumb_url']?>" alt=""/></a>
+                <a href="#" onclick="open_pop('detail_pic_popup<?=$nominees_data['idx']?>');return false;"><img src="<?=$nominees_data['mb_thumb_url']?>" alt="" style="width:180px;height:120px"/></a>
               </div>
               <div class="txt_ct">
                 <div class="inner_txt clearfix">
@@ -178,41 +120,52 @@ function change_tab(param)
 
             <div style="display:none;">
             <!----------------- 후보 등록 사진 or 유튜브영상 자세히보기 팝업 ----------------->
-            <div id="detail_pic_popup<?=$nominees_data['idx']?>" class="popup_wrap">
-              <div class="p_mid_view p_position">
-                <div class="block_close clearfix">
-                  <a href="#" onclick="$.colorbox.close();return false;" class="btn_close"><img src="images/popup/btn_close.png" /></a>
-                </div>
-                <div class="block_content">
-                  <div class="inner">
-                    <div class="title">
-                    참여부문
-                    </div>
-                    <div class="pic">
+              <div id="detail_pic_popup<?=$nominees_data['idx']?>" class="popup_wrap">
+                <div class="p_mid_view p_position">
+                  <div class="block_close clearfix">
+                    <a href="#" onclick="$.colorbox.close();return false;" class="btn_close"><img src="images/popup/btn_close.png" /></a>
+                  </div>
+                  <div class="block_content">
+                    <div class="inner">
+                      <div class="title">
+                        <img src="images/popup/title_contest_cate_<?=$nominees_data['mb_sel_nominees']?>.png" />
+                      </div>
+                      <div class="pic">
 <?
 	if ($nominees_data['mb_upload_flag'] == "P")
 	{
 ?>
-                      <img src="<?=$nominees_data['mb_upload_url']?>" style="width:500px;height:350px">
+                        <img src="<?=$nominees_data['mb_upload_url']?>" style="width:530px;height:300px">
 <?
 	}else{
 ?>
-                      <iframe allowfullscreen src="<?=$nominees_data['mb_upload_url']?>" frameborder="0" width="560" height="350"></iframe>
+                        <iframe allowfullscreen src="<?=$nominees_data['mb_upload_url']?>" frameborder="0" width="530" height="300"></iframe>
 <?
 	}
 ?>
-                    </div>
-                    <div class="pic_info clearfix">
-                      <div class="name">이베비</div>
-                      <div class="num">아이콘 24</div>
-                    </div>
-                    <div class="btn_vote">
-                      <a href="#" onclick="go_vote('<?=$nominees_data['idx']?>');return false;"><img src="images/popup/btn_vote_big.png" /></a>
-                    </div>
-                  </div><!--inner-->
+                      </div>
+                      <div class="pic_info">
+                        <div class="inner clearfix">
+                          <div class="name"><?=$nominees_data['mb_baby_name']?> 후보</div>
+                          <div class="num">
+                            <div class="inner_num clearfix">
+                              <div class="n">
+                              <?=$nominees_data['mb_vote']?>
+                              </div>
+                              <div class="icon">
+                                <img src="images/popup/icon_h.png" />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="btn_vote">
+                        <a href="#" onclick="go_vote('<?=$nominees_data['idx']?>');return false;"><img src="images/popup/btn_vote_big.png" /></a>
+                      </div>
+                    </div><!--inner-->
+                  </div>
                 </div>
               </div>
-            </div>
             <!----------------- 후보 등록 사진 or 유튜브영상 자세히보기 팝업 ----------------->
             </div>
 <?
@@ -236,6 +189,53 @@ function change_tab(param)
       </div>
     </div>
 
+    <!-- 나의 선물 확인 탭 -->
+    <div id="mygift_contents" class="wrap_sec_gift_num change_tab" style="display:none">
+      <div class="sec_gift_num">
+        <div class="title">
+          <img src="images/title_gift_num.jpg" alt=""/>
+        </div>
+        <div class="gift_check">
+          <div class="inner_gift_check clearfix">
+            <div class="input_block">
+              <div class="in_name">
+                <input type="text" id="search_name">
+              </div>
+              <div class="input_phone">
+                <div class="inner_phone clearfix">
+                  <div class="phone_ip">
+                    <select id="search_phone1">
+                      <option value="010">010</option>
+                      <option value="011">011</option>
+                      <option value="016">016</option>
+                      <option value="017">017</option>
+                      <option value="018">018</option>
+                      <option value="019">019</option>
+                    </select>
+                  </div>
+                  <div class="phone_ip"><input type="tel" id="search_phone2"></div>
+                  <div class="phone_ip"><input type="tel" id="search_phone4"></div>
+                </div>
+              </div>
+            </div>
+            <div class="btn">
+              <a href="#" onclick="search_gift();return false;">찾기</a>
+            </div>
+          </div>
+        </div>
+        <div class="gift">
+          <div class="inner_gift">
+            <img src="images/gift_coupon.jpg" alt=""/>
+          </div>
+        </div>
+        <div class="btn_go_home">
+          <a href="http://www.babience.com/index.jsp" target="_blank"><img src="images/btn_go_home.jpg" alt=""/></a>
+        </div>
+        <div class="notice_gift_num">
+          <img src="images/txt_notice_gift_num.jpg" alt=""/>
+        </div>
+      </div>
+    </div>
 
     <div class="wrap_sec_contest_gift">              
       <div class="sec_contest_gift">
@@ -264,10 +264,11 @@ function change_tab(param)
 </html>
 <script type="text/javascript">
 var sel_nominee	= null;
-var img_name	= null;
-var vote_idx		= null;
-var vote_sort	= "all";
-
+var img_name		= null;
+var vote_idx			= null;
+var vote_sort		= "all";
+var chk_mb_flag	= 0;
+var chk_vote_flag	= 0;
 $(document).ready(function() {
 	//Kakao.init('9cfec622990737690124c0fd063e368b');
 	$("#cboxTopLeft").hide();
@@ -302,5 +303,4 @@ function pageRun(num)
 	});
 }
 
->>>>>>> 8d9c6cf3a86641a59116f09b7a7fc46bab372735
 </script>

@@ -1,9 +1,9 @@
 <?
 	include_once "../config.php";
 
-	$vote_param		= $_REQUEST['vote_param'];
-	$pg				= $_REQUEST['pg'];
-
+	$vote_param			= $_REQUEST['vote_param'];
+	$pg						= $_REQUEST['pg'];
+	$search_baby_name	= $_REQUEST['search_baby_name'];
 	if ($vote_param == "all")
 		$query_txt	= "";
 	else if ($vote_param == "1")
@@ -16,6 +16,9 @@
 		$query_txt	= " AND mb_sel_nominees='4'";
 	else
 		$query_txt	= " AND mb_sel_nominees='5'";
+
+	if ($search_baby_name)
+		$query_txt	.= " AND mb_baby_name like '%".$search_baby_name."%'";
 ?>
           <div class="inner_list clearfix">
 <?
@@ -37,10 +40,9 @@
 	while ($nominees_data = mysqli_fetch_array($nominees_result))
 	{
 ?>
-            <!--후보하나-->
             <div class="block_one">
               <div class="img_thumb">
-                <a href="#" onclick="open_pop('detail_pic_popup<?=$nominees_data['idx']?>');return false;"><img src="<?=$nominees_data['mb_thumb_url']?>" alt=""/></a>
+                <a href="#" onclick="open_pop('detail_pic_popup<?=$nominees_data['idx']?>');return false;"><img src="<?=$nominees_data['mb_thumb_url']?>" alt="" style="width:180px;height:120px"/></a>
               </div>
               <div class="txt_ct">
                 <div class="inner_txt clearfix">
@@ -54,45 +56,55 @@
                 </div>
               </div>
             </div>
-            <!--END:후보하나-->
 
             <div style="display:none;">
             <!----------------- 후보 등록 사진 or 유튜브영상 자세히보기 팝업 ----------------->
-            <div id="detail_pic_popup<?=$nominees_data['idx']?>" class="popup_wrap">
-              <div class="p_mid_view p_position">
-                <div class="block_close clearfix">
-                  <a href="#" onclick="$.colorbox.close();return false;" class="btn_close"><img src="images/popup/btn_close.png" /></a>
-                </div>
-                <div class="block_content">
-                  <div class="inner">
-                    <div class="title">
-                    참여부문
-                    </div>
-                    <div class="pic">
+              <div id="detail_pic_popup<?=$nominees_data['idx']?>" class="popup_wrap">
+                <div class="p_mid_view p_position">
+                  <div class="block_close clearfix">
+                    <a href="#" onclick="$.colorbox.close();return false;" class="btn_close"><img src="images/popup/btn_close.png" /></a>
+                  </div>
+                  <div class="block_content">
+                    <div class="inner">
+                      <div class="title">
+                        <img src="images/popup/title_contest_cate_<?=$nominees_data['mb_sel_nominees']?>.png" />
+                      </div>
+                      <div class="pic">
 <?
 	if ($nominees_data['mb_upload_flag'] == "P")
 	{
 ?>
-                      <img src="<?=$nominees_data['mb_upload_url']?>" style="width:500px;height:350px">
+                        <img src="<?=$nominees_data['mb_upload_url']?>" style="width:530px;height:300px">
 <?
 	}else{
 ?>
-                      <iframe allowfullscreen src="<?=$nominees_data['mb_upload_url']?>" frameborder="0" width="560" height="350"></iframe>
+                        <iframe allowfullscreen src="<?=$nominees_data['mb_upload_url']?>" frameborder="0" width="530" height="300"></iframe>
 <?
 	}
 ?>
-                    </div>
-                    <div class="pic_info clearfix">
-                      <div class="name">이베비</div>
-                      <div class="num">아이콘 24</div>
-                    </div>
-                    <div class="btn_vote">
-                      <a href="#" onclick="go_vote('<?=$nominees_data['idx']?>');return false;"><img src="images/popup/btn_vote_big.png" /></a>
-                    </div>
-                  </div><!--inner-->
+                      </div>
+                      <div class="pic_info">
+                        <div class="inner clearfix">
+                          <div class="name"><?=$nominees_data['mb_baby_name']?> 후보</div>
+                          <div class="num">
+                            <div class="inner_num clearfix">
+                              <div class="n">
+                              <?=$nominees_data['mb_vote']?>
+                              </div>
+                              <div class="icon">
+                                <img src="images/popup/icon_h.png" />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="btn_vote">
+                        <a href="#" onclick="go_vote('<?=$nominees_data['idx']?>');return false;"><img src="images/popup/btn_vote_big.png" /></a>
+                      </div>
+                    </div><!--inner-->
+                  </div>
                 </div>
               </div>
-            </div>
             <!----------------- 후보 등록 사진 or 유튜브영상 자세히보기 팝업 ----------------->
             </div>
 <?
